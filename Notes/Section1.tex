@@ -1,0 +1,200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\title{Embedded Systems}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\begin{itemize}
+
+    \section{Embedded Systems}
+
+  \item A computer system embedded into another system
+
+    \begin{itemize} 
+
+      \item Constraints from external input/output 
+
+      \item Application-specific
+
+        \begin{itemize} 
+
+          \item Diverse set of application areas
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Abstraction
+
+    \begin{itemize}
+
+      \item Productivity enhancer — don't need to worry about details\ldots
+
+        \begin{itemize}
+
+          \item A car can be driven without the knowledge of how an internal combustion engine works
+
+        \end{itemize}
+
+      \item \ldots until something goes wrong
+
+        \begin{itemize}
+
+          \item Where's the dipstick? What's a spark plug? Am I out of gas?
+
+        \end{itemize}
+
+      \item Important to understand the components and how they work together
+
+    \end{itemize}
+
+  \item Hardware vs. Software
+
+    \begin{itemize}
+
+      \item All computers, given enough time and memory, are capable of computing the same exact things
+
+      \item In theory, computers ``compute'' anything that's possible to compute
+
+        \begin{itemize}
+
+          \item Given enough memory and time
+
+        \end{itemize}
+
+      \item In practice, ``solving problems'' involves computing under constraints
+
+        \begin{itemize}
+
+          \item Time
+
+            \begin{itemize}
+
+              \item Weather forecast, next frame animation, \ldots
+
+            \end{itemize}
+
+          \item Cost
+
+            \begin{itemize}
+
+              \item iPod, automotive engine controller, \ldots
+
+            \end{itemize}
+
+          \item Power
+
+            \begin{itemize}
+
+              \item Smartphone, tablet, \ldots
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Layers of Abstraction
+
+    \begin{center}
+      \begin{tabular}[h]{|c|}
+        \hline
+        Problems\\
+        \hline
+        Algorithms\\
+        \hline
+        Language\\
+        \hline
+        Instruction Set Architecture\\
+        \hline
+        Microarchitecture\\
+        \hline
+        Circuits\\
+        \hline
+        Devices\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+    \begin{itemize}
+
+      \item Problem Statement
+
+        \begin{itemize}
+
+          \item Stated using ``natural language''
+
+          \item May be ambiguous, imprecise
+
+        \end{itemize}
+
+      \item Algorithm
+
+        \begin{itemize}
+
+          \item Step-by-step procedure, recipe, guaranteed to finish
+
+          \item Definiteness, effective computability, finiteness
+
+        \end{itemize}
+
+      \item Program
+
+        \begin{itemize}
+
+          \item Express the algorithm using a computer language
+
+          \item High-level language, low-level language
+
+        \end{itemize}
+
+      \item Instruction Set Architecture (ISA)
+
+        \begin{itemize}
+
+          \item Specifies the set of instructions the computer can perform
+
+          \item Data types, addressing mode, hardware/software interface
+
+        \end{itemize}
+
+      \item Microarchitecture
+
+        \begin{itemize}
+
+          \item Detailed organization of a processor implementation
+
+          \item Different implementations of a single ISA
+
+        \end{itemize}
+
+      \item Logic Circuits
+
+        \begin{itemize}
+
+          \item Combine basic operations to realize microarchitecture
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
