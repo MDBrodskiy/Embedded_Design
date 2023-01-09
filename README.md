@@ -20,7 +20,7 @@
 ## Table of Contents
 
 * [**Notes**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/)
-    * [**Introduction to Circuits & Signals**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section1.pdf)
+    * [**Introduction to Embedded Design**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section1.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
