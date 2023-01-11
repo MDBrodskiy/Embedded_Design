@@ -1,9 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Written By Michael Brodskiy
-% Class: Cornerstone Engineering 1 & 2 (GE1501 & GE1502)
-% Professor: B. O'Connell
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[12pt]{article} 
 \usepackage{alphalph}
 \usepackage[utf8]{inputenc}
@@ -22,6 +16,7 @@
 \usepackage{cancel}
 \usepackage{siunitx}
 \usepackage{physics}
+\usepackage{lastpage}
 \usepackage{tikz}
 \usepackage{mathdots}
 \usepackage{yhmath}
@@ -54,3 +49,13 @@ filecolor=magenta,
 urlcolor=blue,
 citecolor=blue,
 }
+
+\pagestyle{fancy}
+
+\lfoot[\vspace{-15pt} \hline]{\vspace{-15pt} \hline}
+\rfoot[\vspace{-15pt} \hline]{\vspace{-15pt} \hline}
+\cfoot[\thepage]{\thepage}
+\chead[\textsc{Embedded Systems}]{\textsc{Embedded Systems}}
+\lhead[\textsc{EECE2160, CRN: 32014}]{\textsc{EECE2160, CRN: 32014}}
+\rhead[\textsc{Page \thepage \hspace{1pt} of \pageref{LastPage}}]{\textsc{Page \thepage \hspace{1pt} of \pageref{LastPage}}}
+
