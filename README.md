@@ -21,6 +21,7 @@
 
 * [**Notes**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/)
     * [**Introduction to Embedded Design**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section1.pdf)
+    * [**Number System Conversion \& Binary Arithmetic**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section2.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
