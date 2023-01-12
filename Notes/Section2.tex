@@ -1,0 +1,212 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Number System Conversion\\Binary Arithmetic}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\begin{itemize}
+
+  \item Binary Numbers
+
+    \begin{itemize}
+
+      \item All computers work with 0's and 1's so it is like learning alphabets before learning a language
+
+    \end{itemize}
+
+  \item Number Systems
+
+    \begin{itemize}
+
+      \item There is more than one way to express a number in binary, so 1010 could be -2, -5, or -6, and it is necessary to know which one
+
+    \end{itemize}
+
+  \item A/D and D/A Conversion
+
+    \begin{itemize}
+
+      \item Real world signals come in continuous/analog format, and it is good to how they become 0's and 1's (and vice versa)
+
+    \end{itemize}
+
+  \item Digital = Discrete
+
+    \begin{itemize}
+
+      \item Binary Codes
+
+        \begin{itemize}
+
+          \item Represent symbols using binary digits (bits)
+
+        \end{itemize}
+
+      \item Decimal digits 0-9
+
+    \end{itemize}
+
+  \item Digital Computers
+
+    \begin{itemize}
+
+      \item I/O is digital
+
+      \item Internal representation is binary
+
+      \item Sometimes use hexadecimal (base 16) for large binary numbers
+
+    \end{itemize}
+
+  \item Bases we will use
+
+    \begin{itemize}
+
+      \item Binary: Base 2
+
+      \item Octal: Base 8
+
+      \item Decimal: Base 10
+
+      \item Hexadecimal: Base 16
+
+    \end{itemize}
+
+  \item Positional Number System
+
+    \begin{itemize}
+
+      \item $101_2=1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0$
+
+      \item $63_8=6\cdot 8^1 + 3\cdot8^0$
+
+      \item $A1_{16}=10\cdot16^1 + 1\cdot16^0$
+
+    \end{itemize}
+
+  \item Conversion from binary to octal/hex
+
+    \begin{itemize}
+
+      \item Binary: 10011110001
+
+        \item Octal: $10 | 011 | 110 | 001 = 2361_8$
+
+        \item Hex: $100 | 1111 | 0001 = 4\text{F}1_{16}$
+
+    \end{itemize}
+
+  \item Conversion from binary to decimal
+
+    \begin{itemize}
+
+      \item $101_2=1\cdot2^2 + 0\cdot2^1 + 1\cdot2^0 = 5_{10}$
+
+      \item $63.4_8=6\cdot8^1 + 3\cdot8^0+4\cdot8^{-1}=51.5_{10}$
+
+      \item A$1_{16}=10\cdot16^1 + 1\cdot16^0=161_{10}$
+
+    \end{itemize}
+
+  \item Decimal to binary/octal/hex
+
+    \begin{itemize}
+
+      \item Binary: 56 becomes 111000$_2$
+
+        \begin{center}
+        \begin{tabular}[h]{c|c|c}
+          & Quotient & Remainder\\
+          \hline
+          $56 / 2 =$ & 28 & 0\\
+          $28 / 2 =$ & 14 & 0\\
+          $14 / 2 =$ & 7 & 0\\
+          $7 / 2 =$ & 3 & 1\\
+          $3 / 2 =$ & 1 & 1\\
+          $1 / 2 =$ & 0 & 1\\
+        \end{tabular}
+        \end{center}
+
+    \item Octal: 56 becomes $70_8$
+
+        \begin{center}
+        \begin{tabular}[h]{c|c|c}
+          & Quotient & Remainder\\
+          \hline
+          $56 / 8 =$ & 7 & 0\\
+          $7 / 8 =$ & 0 & 7\\
+        \end{tabular}
+        \end{center}
+
+      \item Each successive divide releases another LSB (least significant bit)
+
+    \end{itemize}
+
+  \item Negative Numbers
+
+    \begin{itemize}
+
+      \item Sign-and-magnitude
+
+        \begin{itemize}
+
+          \item The most-significant bit (MSB) is the sign digit, where 0 is positive and 1 is negative
+
+          \item The remaining bits are the numbers magnitude
+
+        \end{itemize}
+
+      \item Ones-complement
+
+        \begin{itemize}
+
+          \item Negative number: a bitwise complement positive number
+
+        \end{itemize}
+
+      \item Twos-complement
+
+        \begin{itemize}
+
+          \item Most important option
+
+          \item Simplifies arithmetic
+
+          \item Used almost universally
+            
+          \item Negative number: a bitwise complement plus one
+
+            \begin{itemize}
+
+              \item $0011=3_{10}$
+
+              \item $1101=-3_{10}$
+
+            \end{itemize}
+
+          \item Only one zero
+
+          \item MSB is the sign digit, where 0 is positive and 1 is negative
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
