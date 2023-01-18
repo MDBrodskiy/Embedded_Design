@@ -1,0 +1,269 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Digital Logic Circuits}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item About a dozen logical operations
+
+    \begin{itemize}
+
+      \item Similar to algebraic operators (+, *, -, /)
+
+    \end{itemize}
+
+  \item In the following examples:
+
+    \begin{itemize}
+
+      \item $p$ = ``Today is Friday''
+
+      \item $q$ = ``Today is my birthday''
+
+    \end{itemize}
+
+  \item A not operation switches (negates the truth value)
+
+  \item Symbol: $\neg$, $\sim$, `
+
+  \item In C and C++ the operand is !
+
+  \item Ex. $\neg p$ = ``Today is not Friday''
+
+  \item $\neg p=p'$
+
+  \item An and operation is true if both operands are true
+
+  \item Symbol: $\wedge$, $\bullet$
+
+    \begin{itemize}
+
+      \item It's like the ``A'' in And
+
+    \end{itemize}
+
+  \item In C and C++, the operand is \&\&
+
+  \item $p\wedge q$ = ``Today is Friday and today is my birthday''
+
+  \item $A\wedge B=A\bullet B=AB$
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $q$ & $p\wedge q$\\
+        \hline
+        T & T & T\\
+        \hline
+        T & F & F\\
+        \hline
+        F & T & F\\
+        \hline
+        F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item An or operation is true if either operand is true
+
+  \item Symbol: $\vee,+$
+
+  \item In C and C++, the operand is \parallel 
+
+  \item $p\vee q=$ ``Today is Friday or today is my birthday (or possible both)''
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $q$ & $p\vee q$\\
+        \hline
+        T & T & T\\
+        \hline
+        T & F & T\\
+        \hline
+        F & T & T\\
+        \hline
+        F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item An exclusive or operation is true if one of the operands are true, but false if both are true
+
+  \item Symbol: $\oplus$
+
+  \item Often called XOR
+
+  \item $p\oplus q=(p\vee q)\wedge\neg(p\wedge q)$
+
+  \item $p\oplus q=$ ``Today is Friday or today is my birthday, but not both''
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $q$ & $p\oplus q$\\
+        \hline
+        T & T & F\\
+        \hline
+        T & F & T\\
+        \hline
+        F & T & T\\
+        \hline
+        F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item Logical Operator Summary Table:
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|c|c|c|c|c|c|}
+        \hline
+        & & not & not & and & or & xor & nand & nor\\
+        \hline
+        $p$ & $q$ & $\neg p$ & $\neg q$ & $p\wedge q$ & $p\vee q$ & $p\oplus q$ & $p|q$ & $p\downarrow q$\\
+        \hline
+        T & T & F & F & T & T & F & F & F\\
+        \hline
+        T & F & F & T & F & T & T & T & F\\
+        \hline
+        F & T & T & F & F & T & T & T & F\\
+        \hline
+        F & F & T & T & F & F & F & T & T\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item Precedence Order (from highest to lowest):
+
+    $$\neg,\wedge,\vee,\rightarrow,\leftrightarrow$$
+
+  \item Not is always performed before any other operation
+
+  \item Tautology is a statement that is always true:
+
+    $$p\vee\neg p\text{ will always be true}$$
+    $$p\wedge\neg p\text{ will always be false}$$
+
+  \item $p\wedge T\equiv p$ — Identity Law
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $T$ & $p\wedge T$\\
+        \hline
+        T & T & T\\
+        \hline
+        F & T & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item $p\wedge F\equiv F$ — Domination Law
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $F$ & $p\wedge F$\\
+        \hline
+        T & F & T\\
+        \hline
+        F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item $p\wedge p\equiv p$ — Idempotent Law
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|}
+        \hline
+        $p$ & $p$ & $p\wedge p$\\
+        \hline
+        T & T & T\\
+        \hline
+        F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item $p\wedge q\equiv q\wedge p$ — Commutative Law
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $p\wedge q$ & $q\wedge p$\\
+        \hline
+        T & T & T & T\\
+        \hline
+        T & F & F & F\\
+        \hline
+        F & T & F & F\\
+        \hline
+        F & F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item $(p\wedge q)\wedge r\equiv p\wedge (q\wedge r)$ — Associative Law
+
+    \begin{center}
+      \begin{tabular}[h]{|c|c|c|c|c|c|c|}
+        \hline
+        $p$ & $q$ & $r$ & $p\wedge q$ & $(p\wedge q)\wedge r$ & $q\wedge r$ & $p\wedge(q\wedge r)$\\
+        \hline
+        T & T & T & T & T & T & T\\
+        \hline
+        T & T & F & T & F & F & F\\
+        \hline
+        T & F & T & F & F & F & F\\
+        \hline
+        T & T & F & F & F & F & F\\
+        \hline
+        T & F & F & F & F & F & F\\
+        \hline
+        F & T & T & F & F & T & F\\
+        \hline
+        F & T & F & F & F & F & F\\
+        \hline
+        F & F & T & F & F & F & F\\
+        \hline
+        F & F & F & F & F & F & F\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item $p\vee T\equiv T$ — Identity Law
+
+  \item $p\vee F\equiv p$ — Domination Law
+
+  \item $p\vee p\equiv p$ — Idempotent Law
+
+  \item $p\vee q \equiv q\vee p$ — Commutative Law
+
+  \item $(p\vee q)\vee r\equiv p\vee(q\vee r)$ — Associative Law
+
+\end{itemize}
+
+\end{itemize}
+
+\end{document}
+
