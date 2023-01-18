@@ -202,6 +202,34 @@
 
           \item MSB is the sign digit, where 0 is positive and 1 is negative
 
+          \item Overflow: summing two positive numbers gives a negative result and vice versa
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Signed-Complement Arithmetic
+
+    \begin{itemize}
+
+      \item Addition
+
+        \begin{itemize}
+
+          \item Add the numbers including the sign bits, discarding a carry out of the sign bits (2's Complement)
+
+          \item If the sign bits were the same for both numbers and the sign of the result is different, an overflow has occurred
+
+          \item The sign of the result is computed in step 1
+
+        \end{itemize}
+
+      \item Subtraction
+
+        \begin{itemize}
+
+          \item Form the complement of the number you are subtracting and follow the rules for addition
+            
         \end{itemize}
 
     \end{itemize}
