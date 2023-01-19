@@ -23,6 +23,7 @@
     * [**Introduction to Embedded Design**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section1.pdf)
     * [**Number System Conversion \& Binary Arithmetic**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section2.pdf)
     * [**Digital Logic Circuits**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section3.pdf)
+    * [**Lab One Instructions**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section4.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
