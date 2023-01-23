@@ -1,0 +1,220 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Digital Logic Circuits Cont'd}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Logical Equivalences of And
+
+    \begin{itemize}
+
+      \item $(p\wedge q) \wedge r \equiv p\wedge (q\wedge r)$ — Associative Law
+
+        \begin{center}
+          \begin{tabular}[h!]{|c|c|c|c|c|c|c|}
+            \hline
+            $p$ & $q$ & $r$ & $p\wedge q$ & $(p\wedge q)\wedge r$ & $q\wedge r$ & $p\wedge (q\wedge r)$\\
+            \hline
+            T & T & T & T & T & T & T\\
+            \hline
+            T & T & F & T & F & F & F\\
+            \hline
+            T & F & T & F & F & F & F\\
+            \hline
+            T & F & F & F & F & F & F\\
+            \hline
+            F & T & T & F & F & T & F\\
+            \hline
+            F & T & F & F & F & F & F\\
+            \hline
+            F & F & T & F & F & F & F\\
+            \hline
+            F & F & F & F & F & F & F\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+    \end{itemize}
+
+  \item Logical Equivalences of Or
+
+    \begin{itemize}
+
+      \item $p\vee T\equiv T$ — Identity Law
+
+      \item $p\vee F\equiv p$ — Domination Law
+
+      \item $p\vee p\equiv p$ — Idempotent Law
+
+      \item $p\vee q\equiv q\vee p$ — Commutative Law
+
+      \item $(p \vee q )\vee r \equiv p\vee (q\vee r)$ — Associative Law
+
+      \item $\sim (p\vee q) \equiv (\sim p)\wedge (\sim q)$ — De Morgan's Law
+
+    \end{itemize}
+
+  \item Can implement any truth table with AND, OR, and NOT
+
+    \begin{enumerate}
+
+      \item AND combinations that yield a ``1'' in the truth table
+
+      \item OR the results of the AND gates
+
+    \end{enumerate}
+
+  \item Sum of Products Form: Key Idea
+
+    \begin{itemize}
+
+      \item Assume we have the truth table of a boolean function
+
+      \item How do we express the function in terms of the inputs in a standard manner?
+
+        \begin{itemize}
+
+          \item Idea: Sum of Products Form
+
+          \item Express the truth table as a two-level Boolean expression
+
+          \item If ANY of the combinations of input variables that results in a 1 is TRUE, then the output is 1
+
+          \item F = OR of all input variable combinations that result in a 1
+
+        \end{itemize}
+
+      \item Complement: Variable with a bar over it
+
+        $$\bar{A},\,\bar{B},\,\bar{C}$$
+
+      \item Literal: Variable or its complement
+
+        $$A,\,\bar{A},\,B,\,\bar{B},\,C,\,\bar{C}$$
+
+      \item Implicant: Product (AND) of literals
+
+        $$(A\bullet B\bullet\bar{C}),\,(\bar{A}\bullet C),\,(B\bullet\bar{C})$$
+
+      \item Minterm: Product (AND) that includes all input variables
+
+        $$(A\bullet B\bullet \bar{C}),\,(\bar{A}\bullet\bar{B}\bullet C),\,(\bar{A}\bullet B\bullet\bar{C})$$
+
+      \item Maxterm: Sum (OR) that includes all input variables
+
+        $$(A\vee B\vee \bar{C}),\,(\bar{A}\vee\bar{B}\vee C),\,(\bar{A}\vee B\vee\bar{C})$$
+
+    \end{itemize}
+
+  \item Canonical Form: Standard form for a boolean expression
+
+  \item Sum of Products Form (SOP)
+
+    \begin{itemize}
+
+      \item Also known as a disjunctive normal form or minterm expansion
+
+      \item Each row in a truth table has a minterm
+
+      \item A minterm is a product (AND) of literals
+
+      \item Each minterm is TRUE for that row (and only that row)
+
+      \item All boolean equations can be written in SOP form
+
+      \item Standard ``shorthand'' notation
+
+        \begin{itemize}
+
+          \item If the order of variables in the rows of a truth table are agreed upon, then one may write \textsc{m<row>} as shorthand, for example, \textsc{m4} for row 4
+
+          \item This can be be rewritten as a sum of products or summation notation:
+
+            $$m3 + m4 + m5 + m6 + m7=\sum m(3,4,5,6,7)$$
+
+          \item The canonical form is not always the minimal form
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Product of Sums (POS) Form
+
+    \begin{itemize}
+
+      \item Each sum term represents one of the ``zeros'' of the function
+
+      \item Write the inverses of the zero functions as each term
+
+        \begin{itemize}
+
+          \item Ex. If a truth table gives $\begin{array}{c c c} A & B & C\\ 0 & 1 & 0 \end{array}$, then a term of the product of sums would $(A\vee \bar{B}\vee C)$
+
+          \item Multiply (AND) each of these terms
+
+        \end{itemize}
+
+      \item This is also known as maxterm form or conjunctive normal form
+
+        \begin{enumerate}
+
+          \item Find truth table rows where $F$ is 0
+
+          \item $0$ in input column $\rightarrow$ true literal
+
+          \item $1$ in input column $\rightarrow$ complemented literal
+
+          \item OR the literals to get a maxterm
+
+          \item AND together all the maxterms
+
+        \end{enumerate}
+
+      \item Standard ``shorthand'' notation
+
+        \begin{itemize}
+
+          \item If the order of variables in the rows of a truth table are agreed upon, then one may write \textsc{M<row>} as shorthand, for example, \textsc{M4} for row 4
+
+          \item This can be be rewritten as a product of the sums or product notation:
+
+            $$(M0)(M1)(M2)=\prod M(0,1,2)$$
+
+          \item The canonical form is not always the minimal form
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Minterm-Maxterm Conversion
+
+    \begin{itemize}
+
+      \item Rewrite minterm shorthand using maxterm shorthand, replacing minterm indices with the indices not already used, and vice versa:
+
+        $$\sum m(3,4,5,6,7)=\prod M(0,1,2)$$
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
