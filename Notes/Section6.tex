@@ -1,0 +1,122 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Digital Logic Circuits}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Canonical POS Forms
+
+    \begin{itemize}
+
+      \item Product of Sums / Conjunctive Normal Form / Maxterm Expansion
+
+        \begin{center}
+          \begin{tabular}[h!]{c c c | l}
+            \textbf{A} & \textbf{B} & \textbf{C} & Maxterms\\
+            \hline
+             0 & 0 & 0 & $\bold{A} + \bold{B} + \bold{C}= M0$\\
+             0 & 0 & 1 & $\bold{A} + \bold{B} + \bold{\bar{C}}= M1$\\
+             0 & 1 & 0 & $\bold{A} + \bold{\bar{B}} + \bold{C}= M2$\\
+             0 & 1 & 1 & $\bold{A} + \bold{\bar{B}} + \bold{\bar{C}}= M3$\\
+             1 & 0 & 0 & $\bold{\bar{A}} + \bold{B} + \bold{C}= M4$\\
+             1 & 0 & 1 & $\bold{\bar{A}} + \bold{B} + \bold{C}= M5$\\
+             1 & 1 & 0 & $\bold{\bar{A}} + \bold{\bar{B}} + \bold{C}= M6$\\
+             1 & 1 & 1 & $\bold{\bar{A}} + \bold{\bar{B}} + \bold{\bar{C}}= M7$\\
+             \hline
+          \end{tabular}
+        \end{center}
+
+      \item This can be rewritten as:
+
+        $$\bold{F}=(\bold{A}+\bold{B}+\bold{C})(\bold{A}+\bold{B}+\bold{\bar{C}})(\bold{A}+\bold{\bar{B}}+\bold{C})=\prod M(0,1,2)$$
+
+      \item The terms numbered $M<\#>$ is known as the maxterm shorthand
+
+      \item It is best to choose whichever form (product or sum) gives the least terms
+
+    \end{itemize}
+
+  \item Sample Design (or Quiz) Problem
+
+    \begin{itemize}
+
+      \item A sound alarm is connected to three environmental sensors. The alarm is triggered only when any two out of three, or all three inputs from the sensors are high
+
+        \begin{enumerate}
+
+          \item Set up a truth table for the output of the alarm system
+
+            \vspace{10pt}
+
+            \begin{center}
+              \begin{tabular}[h!]{c c c | l}
+                a & b & c & f(a,b,c)\\
+                \hline
+                0 & 0 & 0 & 0\\
+                0 & 0 & 1 & 0\\
+                0 & 1 & 0 & 0\\
+                0 & 1 & 1 & 1\\
+                1 & 0 & 0 & 0\\
+                1 & 0 & 1 & 1\\
+                1 & 1 & 0 & 1\\
+                1 & 1 & 1 & 1\\
+                \hline
+              \end{tabular}
+            \end{center}
+
+            \vspace{10pt}
+
+          \item Find the boolean expression for the output
+
+            \begin{itemize}
+
+              \item As a sum of products
+
+                $$\bar{a}bc+a\bar{b}c+ab\bar{c}+abc$$
+
+            \end{itemize}
+
+          \item Draw the combinational logic circuit diagram for output
+
+            The number of ``and'' gates for any sum of products would be proportional to the amount of terms. For the above from (2), there will be 4 ``and'' gates leading to an ``or'' gate
+
+        \end{enumerate}
+
+    \end{itemize}
+
+    \begin{itemize}
+
+      \item The first step would be to create a ``black box'' and define and name inputs and outputs
+
+        \begin{itemize}
+
+          \item Try to give meaningful names
+
+          \item Not just something like $i,j,k$, etc.
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
