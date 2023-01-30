@@ -1,0 +1,140 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Adders, Subtractors, \& Multipliers}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item The Half Adder
+
+    \begin{itemize}
+
+      \item Specification
+
+        \begin{itemize}
+
+          \item 2 Inputs ($X$, $Y$)
+
+          \item 2 Outputs ($C$, $S$)
+
+        \end{itemize}
+
+        \begin{center}
+          \begin{tabular}[h!]{c c | c  c}
+            $X$ & $Y$ & $C$ & $S$\\
+            \hline
+            0 & 0 & 0 & 0\\
+            0 & 1 & 0 & 1\\
+            1 & 0 & 0 & 1\\
+            1 & 1 & 1 & 0\\
+          \end{tabular}
+        \end{center}
+
+    \end{itemize}
+
+  \item The Full Adder
+
+    \begin{itemize}
+
+      \item A combinational circuit that adds 3 input bits to generate a sum bit and a carry bit (``half adder with carry in'')
+
+      \item Specification:
+
+        \begin{itemize}
+
+          \item Three Inputs ($X$, $Y$, $Z$)
+
+          \item Two Outputs ($S$, $C$)
+
+        \end{itemize}
+
+        \begin{center}
+          \begin{tabular}[h!]{c c c | c c}
+            $X$ & $Y$ & $Z$ & $C$ & $S$\\
+            \hline
+             0 & 0 & 0 & 0 & 0\\
+             0 & 0 & 1 & 0 & 1\\
+             0 & 1 & 0 & 0 & 1\\
+             0 & 1 & 1 & 1 & 0\\
+             1 & 0 & 0 & 0 & 1\\ 
+             1 & 0 & 1 & 1 & 0\\
+             1 & 1 & 0 & 1 & 0\\ 
+             1 & 1 & 1 & 1 & 1\\
+          \end{tabular}
+        \end{center}
+
+    \end{itemize}
+
+  \item Implementations of Multi-bit Adders:
+
+    \begin{itemize}
+
+      \item Ripple Carry Adder
+
+        \begin{itemize}
+
+          \item The carry ripples from one column to the next, and then from one stage to the next
+
+          \item Composed of $n$ 1-bit full adders
+
+          \item Carries ripple from LSB stage to MSB stage
+
+            \begin{itemize}
+
+              \item Delay: $n\cdot$ (delay of single FA stage)
+
+              \item Area required is linear in $n$
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item 4-bit Ripple Carry Adder
+
+        \begin{itemize}
+
+          \item Composed of 4 1-bit Full Adders
+
+        \end{itemize}
+
+      \item Assume gate delay $=T$ nanoseconds
+
+      \item 8$T$ to compute the last carry
+
+      \item Total delay $=8+1=9T$
+
+      \item $1$ delay from first half adder
+
+    \end{itemize}
+
+  \item An adder/subtractor is built using full adders and XOR gates
+
+  \item Binary Multiplication
+
+    \begin{itemize}
+
+      \item Multiplication is achieved by adding a list of shifted multiplicands according to the digits of the multiplier
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
