@@ -28,6 +28,8 @@
     * [**Digital Logic Circuits part 3**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section6.pdf)
     * [**Adders, Subtractors, \& Multipliers**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section7.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
+    * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
+        * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
     * [**Lab Two**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Pre-Lab**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/Prelab.pdf)
 
