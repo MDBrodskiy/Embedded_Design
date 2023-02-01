@@ -1,0 +1,208 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Digital Logic Minimization}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Definitions
+
+    \begin{itemize}
+
+      \item Literal: $x_i, x_i'$
+
+      \item Product Term: $x_2x_1'x_0$
+
+      \item Sum Term: $x_2 + x_1' + x_0$
+
+    \end{itemize}
+
+  \item Minterm of $n$ variables
+
+    \begin{itemize}
+
+      \item A product of $n$ literals in which every variable appears exactly once
+
+      \item  $f(a,b,c,d)$: $ab'cd'$, $a'bc'd'$
+
+    \end{itemize}
+
+  \item Maxterm of $n$ variables
+
+    \begin{itemize}
+
+      \item A sum of $n$ literals in which every variable appears exactly once
+
+      \item $f(a,b,c,d)$: $a'+b+c+d$, $a'+b'+c+d$
+
+    \end{itemize}
+
+  \item Input:
+
+    \begin{itemize}
+        
+      \item Boolean expression of $n$ binary variables
+
+    \end{itemize}
+
+  \item Goal
+
+    \begin{itemize}
+
+      \item Simplification of the expression
+
+      \item We want to minimize \# terms and \# literals
+
+    \end{itemize}
+
+  \item Applications
+
+    \begin{itemize}
+
+      \item Logic: rule reduction
+
+      \item Hardware Design: cost and performance optimization
+
+      \item Cost (wires, gates): \# literals, product terms, sum terms
+
+      \item Performance: speed, reliability
+
+    \end{itemize}
+
+  \item Boolean Optimization
+
+    \begin{itemize}
+
+      \item Function can be represented by sum of minterms:
+
+        $$f(A,B)=A'B+AB'+AD$$
+
+      \item This is not minimal
+
+      \item We want to minimize the number of literals and terms
+
+      \item We can factor out common terms
+
+        $$A’B+AB’+AB= A’B+AB’+AB+AB$$
+        $$=(A’+A)B+A(B’+B)=B+A$$
+
+      \item Thus, we have $f(A,B)=A + B$
+        
+    \end{itemize}
+
+  \item Karnaugh Maps (K-Maps)
+
+    \begin{itemize}
+
+      \item Developed by Maurice Karnaugh
+
+      \item Essentially a truth table in 2 dimensions
+
+      \item For $f(A,B)=A+B$
+
+        \begin{center}
+          \begin{tabular}[h!]{| l | c | c | c | c |}
+            \hline
+            ID & $A$ & $B$ & $f$ & \\
+            \hline
+            0 & 0 & 0 & 0 & \\
+            \hline
+            1 & 0 & 1 & 1 & $A'B$\\
+            \hline
+            2 & 1 & 0 & 1 & $AB'$\\
+            \hline
+            3 & 1 & 1 & 1 & $AB$\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+      \item Is converted to
+
+      \begin{center}
+        \begin{tabular}[h!]{c | c | c}
+          & $B=0$ & $B=1$\\
+          \hline
+          $A=0$ & 0 & 1 \\
+          \hline
+          $A=1$ & 1 & 1 \\
+          \hline
+        \end{tabular}
+      \end{center}
+
+    \item The bottom left corresponds to $AB'$, the bottom right to $AB$, and the top right to $A'B$
+
+    \end{itemize}
+
+  \item Representation of $k$-Variable Functions
+
+    \begin{itemize}
+
+      \item Boolean Expression
+
+      \item Truth Table
+
+      \item Cube
+
+      \item K Map
+
+      \item Binary Decision Diagram
+
+    \end{itemize}
+
+  \item Boolean expressions can be minimized by combining terms
+
+  \item K-Map Grouping Rules
+
+    \begin{enumerate}
+
+      \item Group all adjacent 1's
+
+      \item Group only in powers of 2 (\textit{i.e.} $2^n$ cells)
+
+      \item Use rectangles or squares to cover 1's in adjacent entries
+
+      \item Rectangles can overlap but should not include 0's
+
+      \item Groups should be as large as possible (avoid redundant groups)
+
+      \item Adjacent cells extend to:
+
+        \begin{itemize}
+
+          \item Leftmost edge and rightmost edge are adjacent
+
+          \item Top and bottom rows are adjacent
+
+          \item The four corners are also adjacent
+
+        \end{itemize}
+
+    \end{enumerate}
+
+    \begin{itemize}
+
+      \item ``Don't Cares'' (\textsc{x}) don't matter at input or output, and can be assigned a 1 or 0 value
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
