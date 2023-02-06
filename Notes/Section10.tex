@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{K-Map Analysis}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Three-Variable K-Map
+
+    \begin{itemize}
+
+      \item The following truth table:
+
+        \begin{center}
+        \begin{tabular}[h!]{| c c c | c |}
+          \hline
+          a & b & c & $f$(a,b,c)\\
+          \hline
+          0 & 0 & 0 & 0\\
+          0 & 0 & 1 & 1\\
+          0 & 1 & 0 & 0\\
+          0 & 1 & 1 & 1\\
+          1 & 0 & 0 & 0\\
+          1 & 0 & 1 & 1\\
+          1 & 1 & 0 & 0\\
+          1 & 1 & 1 & 1\\
+          \hline
+        \end{tabular}
+      \end{center}
+
+      \item Would be converted to the following K-Map:
+
+        \begin{center}
+        \begin{tabular}[h!]{c | c c c c |}
+          a \textbackslash bc & (0,0) & (0,1) & (1,1) & (1,0)\\
+          \hline
+          0 & 0 & 1 & 1 & 0\\
+          \hline
+          1 & 0 & 1 & 1 & 0\\
+          \hline
+        \end{tabular}
+      \end{center}
+
+    \item By grouping $2^n$ adjacent ones, the boolean expression becomes: $f$(a,b,c)$=c$
+
+    \end{itemize}
+
+  \item Converting to K-Maps from boolean expressions
+
+    \begin{itemize}
+
+      \item $f$(a,b,c) $=$ a'b'c' + ab'c' + abc' + ab'
+
+        \begin{center}
+          \begin{tabular}[h!]{c | c c c c |}
+            a \textbackslash bc & (0,0) & (0,1) & (1,1) & (1,0)\\
+            \hline
+            0 & 1 & 0 & 0 & 0\\
+            1 & 1 & 1 & 0 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+      \item $f$(a,b,c) $=$ a'b' + a'c'+ bc' + ab + b'c
+
+        \begin{center}
+          \begin{tabular}[h!]{c | c c c c |}
+            a \textbackslash bc & (0,0) & (0,1) & (1,1) & (1,0)\\
+            \hline
+            0 & 1 & 1 & 0 & 1\\
+            1 & 0 & 0 & 1 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+    \end{itemize}
+
+  \item K-Maps with Don't Cares (``x'')
+
+    \begin{itemize}
+
+      \item The following is an example K-Map with don't cares
+
+        \begin{center}
+          \begin{tabular}[h!]{c | c c c c |}
+            AB \textbackslash CD & 00 & 01 & 11 & 10\\
+            \hline
+            00 & 1 & 0 & x & 1\\
+            \hline
+            01 & 0 & x & x & 1\\
+            \hline
+            11 & 1 & 1 & x & x\\
+            \hline
+            10 & 1 & 1 & 1 & 1\\
+            \hline
+          \end{tabular}
+        \end{center}
+
+    \end{itemize}
+
+  \item Don't cares can be assigned either a 0 or 1
+
+  \item It is necessary to create groups as big as possible
+
+  \item The above K-Map becomes the expression $f$(a,b,c) $=$ A + $\bar{\text{B}}\bar{\text{D}}$ + C
+
+\end{itemize}
+
+\end{document}
+
