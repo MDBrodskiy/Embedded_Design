@@ -1,0 +1,79 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Multiplexers, Demultiplexers, Encoders, and Decoders}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item A multiplexer has:
+
+    \begin{itemize}
+
+      \item $N$ control inputs
+
+      \item $2^N$ data inputs
+
+      \item 1 output
+
+    \end{itemize}
+
+  \item A multiplexer routes (or connects) the selected data input to the output
+
+    \begin{itemize}
+
+      \item The value of the control inputs determines the data input that is selected
+
+    \end{itemize}
+
+    \begin{figure}[h!]
+      \centering
+      \include{Figures/MUX}
+      \caption{A 2-to-1 Multiplexer}
+      \label{fig:1}
+    \end{figure}
+
+    \begin{figure}[h!]
+      \centering
+      \include{Figures/4MUX}
+      \caption{A 4-to-1 Multiplexer}
+      \label{fig:2}
+    \end{figure}
+
+    \begin{figure}[h!]
+      \centering
+      \include{Figures/8MUX}
+      \caption{A 8-to-1 Multiplexer}
+      \label{fig:3}
+    \end{figure}
+
+  \item Example:
+
+    \begin{itemize}
+
+      \item Design a 4-to-1 multiplexer using 2-to-1 multiplexers only
+
+      \item Essentially, ``stack'' three 2-to-1 multiplexers 
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
