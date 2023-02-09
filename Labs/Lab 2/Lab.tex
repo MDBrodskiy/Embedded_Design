@@ -360,7 +360,48 @@ The pre-lab consisted of the construction of a truth table based on the provided
   \label{fig:14}
 \end{figure}
 
+From the simulation results, it can be seen that when SW[4] (the enable input) is 0 then all the Segment outputs are 1, which in our case means they are off. Then when SW[4] is 1, the segment outputs correspond to the number that is supposed to be displayed. 
+
 \subsection{Assignment 4}
+
+In Assignment 4, the goal was to display a digit on multiple 7-Segment displays if the display is enabled. To display a digit on multiple 7-Segment displays if the display is enabled, the circuit design from Assignment 3 was packed into a logic block called display7_en. Six of the display7_en logic blocks, one for each available 7-Segment display on the DE1-SoC board were used to create the circuit design shown in Figure \ref{fig:15} below. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/display_control.png}
+  \caption{Circuit design for displaying a digit on multiple 7-Segment displays if the display is enabled}
+  \label{fig:15}
+\end{figure}
+
+For the inputs, the digits 0-9 being displayed were represented by the first four switches SW[0], SW[1], SW[2], and SW[3]. As for enabling the displays, SW[4], SW[5], SW[6], SW[7], SW[8], and SW[9] were used. Then, for the outputs, they were assigned to each of the six displayed HEX0, HEX1, HEX2, HEX3, HEX4, and HEX5. Once the design was completed with the correct assignments, it was uploaded to the DE1-SoC board for testing. The switches were changed around to verify the correct behavior and output on the displays given different inputs. Images of the Board with switches in different positions are shown in Figures \ref{fig:16}-\ref{fig:19} below. 
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/Three0.jpg}
+  \caption{SW[0] is disabled, and SW[5] and SW[7] are enabled}
+  \label{fig:16}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/Two6.jpg}
+  \caption{SW[1], SW[2], SW[5], and SW[6] are enabled}
+  \label{fig:17}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/Three9.jpg}
+  \caption{SW[0], SW[3], SW[4], SW[6] and SW[8] are enabled}
+  \label{fig:18}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=.9\textwidth]{Figures/Three1.jpg}
+  \caption{SW[0], SW[4], SW[6] and SW[8] are enabled}
+  \label{fig:19}
+\end{figure}
 
 \section{Conclusion}
 
