@@ -31,6 +31,7 @@
     * [**Digital Logic Minimization for Lab Two**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section9.pdf)
     * [**Digital Logic Minimization part 2**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section10.pdf)
     * [**Multiplexers**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section11.pdf)
+    * [**Design of an Arithmetic Logic Unit**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section12.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
