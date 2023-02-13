@@ -1,0 +1,148 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Multiplexers, Demultiplexers, Decoders, and Encoders}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item A demultiplexer has:
+
+    \begin{itemize}
+
+      \item $N$ control inputs
+
+      \item 1 data input
+
+      \item $2^N$ outputs
+
+    \end{itemize}
+
+  \item A demultiplexer routes (or connects) the data input to the selected output
+
+    \begin{itemize}
+
+      \item The value of the control inputs determines the output that is selected
+
+    \end{itemize}
+
+  \item A demultiplexer performs the opposite function of a multiplexer
+
+  \item Using an $n$-input multiplexer
+
+    \begin{itemize}
+
+      \item Use an $n$-input multiplexer to realize a logic circuit for a function with $n$ minterms
+
+        \begin{itemize}
+
+          \item $n=2^m$, where $m=$ \# of variables in the function
+
+        \end{itemize}
+
+      \item Each minterm of the function can be mapped to an input of the multiplexer
+
+      \item For each row in the truth table, for the function, where the output is 1, set the corresponding input of the multiplexer to 1
+
+        \begin{itemize}
+
+          \item That is, for each minterm in the minterm expansion of the function, set the corresponding input of the multiplexer to 1
+
+        \end{itemize}
+
+      \item Set the remaining inputs of the multiplexer to 0
+
+    \end{itemize}
+
+  \item Using an ($\frac{n}{2}$)-input multiplexer
+
+    \begin{itemize}
+
+      \item $n=2^m$, wehere $m =$ the number of variables in the function
+
+    \end{itemize}
+
+  \item Group the rows of the truth table, for the function, into $\dfrac{n}{2}$ pairs of rows
+
+    \begin{itemize}
+
+      \item Each pair of rows represents a product term of ($m-1$) variables
+
+      \item Each pair of rows can be mapped to a multiplexer input
+
+    \end{itemize}
+
+  \item Determine the logical function of each pair of rows in terms of the $m^{th}$ variable
+
+    \begin{itemize}
+
+      \item If the $m^{th}$ variable, for example, is $x$, then the possible values are $x$, $x'$, 0, and 1
+
+    \end{itemize}
+
+  \item Decoders
+
+    \begin{itemize}
+
+      \item A decoder has
+
+        \begin{itemize}
+
+          \item $N$ inputs
+
+          \item $2^N$ outputs
+
+        \end{itemize}
+
+      \item A decoder selects one of $2^N$ outputs by decoding the binary value on the $N$ inputs
+
+      \item The decoder generates all of the minterms of the N input variables
+
+        \begin{itemize}
+
+          \item Exactly one output will be active for each combination of the inputs
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Encoders
+
+    \begin{itemize}
+
+      \item An encoder has:
+
+        \begin{itemize}
+
+          \item $2^N$ inputs
+
+          \item $N$ outputs
+
+        \end{itemize}
+
+      \item An encoder outputs the binary value of the selected (or active) input
+
+      \item An encoder performs the inverse operation of a decoder
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
