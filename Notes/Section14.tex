@@ -1,0 +1,194 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{Introduction to Sequential Logic}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item In combinational circuits, boolean equations are used to generate a logical circuit
+
+  \item Sequential circuits contain external inputs and outputs, as well as combinational logic, and, most importantly, memory (internal inputs and outputs)
+
+  \item Combinational Circuits
+
+    \begin{itemize}
+
+      \item Always gives the same output for a given set of inputs
+
+        \begin{itemize}
+
+          \item Ex. An adder always generates sum and carry, regardless of previous inputs
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Sequential Circuits
+
+    \begin{itemize}
+
+      \item Stores information
+
+      \item Output depends on stored information (state) plus input
+
+        \begin{itemize}
+
+          \item So a given input might produce different outputs, depending on the stored information
+
+        \end{itemize}
+
+      \item Useful for building ``memory'' elements
+
+      \item Two kinds of sequential circuits
+
+        \begin{itemize}
+
+          \item Asynchronous
+
+          \item Synchronous
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Storage Elements
+
+    \begin{itemize}
+
+      \item Latches and flip-flops
+
+        \begin{itemize}
+
+          \item Very fast, parallel access
+
+          \item Very expensive (one bit costs tens of transistors)
+
+        \end{itemize}
+
+      \item Static RAM (SRAM)
+
+        \begin{itemize}
+
+          \item Relatively fast, only one data word at a time
+
+          \item Expensive (one bit costs 6+ transistors)
+
+        \end{itemize}
+
+      \item Dynamic RAM (DRAM)
+
+        \begin{itemize}
+
+          \item Slower, one data word at a time, reading destroys content (refresh), needs special process for manufacturing
+
+          \item Cheap (one bit costs only one transistor plus one capacitor)
+
+        \end{itemize}
+
+      \item Other storage technology (flash memory, hard disk, tape)
+
+        \begin{itemize}
+
+          \item Much slower, access takes a long time, non-volatile
+
+          \item Very cheap
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Asynchronous Sequential Circuit
+
+    \begin{itemize}
+
+      \item The output changes whenever the input changes. Sometimes, however, they do have an enable input. If this enable input is low, they maintain the previous output regardless of the changes in the inputs. If the enable is high, the output changes as the input changes. 
+
+      \item Implemented with latches
+
+        \begin{itemize}
+
+          \item SR latch
+
+            \begin{itemize}
+
+              \item R is used to ``reset'' or ``clear'' the element — set it to zero
+
+              \item S is used to ``set'' the element — set it to one
+
+              \item If both R and S are one, out could be either zero or one
+
+                \begin{itemize}
+
+                  \item ``Quiescent'' state — holds its previous value
+
+                \end{itemize}
+
+            \end{itemize}
+
+          \item D latch
+
+            \begin{itemize}
+
+              \item Prevents downfall of SR latch
+
+              \item Multiple D latches may be used to store more data
+
+              \item A single write enable signal for all latches may be used for simultaneous writes
+
+              \item This makes a register, or a structure that stores more than one bit and can be read from and written to
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Synchronous Sequential Circuits
+
+    \begin{itemize}
+
+      \item Synchronous devices are triggered on the rising edge or the falling edge of an external clock. Any change in inputs has to wait until the next rising (or falling) edge of the clock to affect the output.
+
+      \item Implemented with flip-flops:
+
+        \begin{itemize}
+
+          \item SR flip-flop
+
+          \item D flip-flop
+
+          \item JK flip-flop
+
+          \item T flip-flop
+
+        \end{itemize}
+
+      \item Currently, we cannot simply wire a clock to WE of a latch
+
+      \item Whenever the clock is high, the latch propagates D to Q
+
+      \item The latch is transparent
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
