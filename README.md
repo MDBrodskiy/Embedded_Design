@@ -33,7 +33,7 @@
     * [**Multiplexers**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section11.pdf)
     * [**Design of an Arithmetic Logic Unit**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section12.pdf)
     * [**Demultiplexers, Decoders, and Encoders**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section13.pdf)
-    * [**Introduction to Sequential Logic**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section14.pdf)
+    * [**Finite State Machines**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section14.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
