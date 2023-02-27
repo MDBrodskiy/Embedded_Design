@@ -8,7 +8,7 @@
 
 \pagestyle{fancy}
 
-\title{Introduction to Sequential Logic}
+\title{Finite State Machines}
 \date{\today}
 \author{Michael Brodskiy\\ \small Professor: S. Shazli}
 
@@ -22,171 +22,145 @@
 
 \begin{itemize}
 
-  \item In combinational circuits, boolean equations are used to generate a logical circuit
+\item State
 
-  \item Sequential circuits contain external inputs and outputs, as well as combinational logic, and, most importantly, memory (internal inputs and outputs)
+  \begin{itemize}
 
-  \item Combinational Circuits
+    \item In order for a rotary lock to work, it has to keep track (remember) past events
 
-    \begin{itemize}
+    \item If the passcode is R13-L22-R3, the sequence of states to unlock is:
 
-      \item Always gives the same output for a given set of inputs
+      \begin{enumerate}
 
-        \begin{itemize}
+        \item The lock is not open (locked), and no relevant operation has been performed
 
-          \item Ex. An adder always generates sum and carry, regardless of previous inputs
+        \item Locked but user has completed R13
 
-        \end{itemize}
+        \item Locked but user has completed R13-L22
 
-    \end{itemize}
+        \item Unlocked: user has completed R13-L22-R3
 
-  \item Sequential Circuits
+      \end{itemize}
 
-    \begin{itemize}
+    \item A state diagram completely describes the operation of a sequential logic circuit
 
-      \item Stores information
+    \item Another example of state is a traffic light
 
-      \item Output depends on stored information (state) plus input
+    \item A standard Swiss traffic light has 4 states
 
-        \begin{itemize}
+      \begin{enumerate}
 
-          \item So a given input might produce different outputs, depending on the stored information
+        \item Green
 
-        \end{itemize}
+        \item Yellow
 
-      \item Useful for building ``memory'' elements
+        \item Red
 
-      \item Two kinds of sequential circuits
+        \item Red and Yellow
 
-        \begin{itemize}
+      \end{enumerate}
 
-          \item Asynchronous
+    \item The sequence of these states is always as follows: $A\to B\to C\to D\to A$
 
-          \item Synchronous
+    \item When should the light change from one state to another?
 
-        \end{itemize}
+      \begin{itemize}
 
-    \end{itemize}
+        \item We need a clock to indicate this
 
-  \item Storage Elements
+        \item At the start of a clock cycle, the system changes state
 
-    \begin{itemize}
+          \begin{itemize}
 
-      \item Latches and flip-flops
+            \item During a clock cycle, the state always stays constant
 
-        \begin{itemize}
+          \end{itemize}
 
-          \item Very fast, parallel access
+      \end{itemize}
 
-          \item Very expensive (one bit costs tens of transistors)
+  \end{itemize}
 
-        \end{itemize}
+\item Changing State: The Notion of Clocks
 
-      \item Static RAM (SRAM)
+  \begin{itemize}
 
-        \begin{itemize}
+    \item Clock is a general mechanism that triggers transition from one state to another in a sequential circuit
 
-          \item Relatively fast, only one data word at a time
+    \item Clock synchronizes state changes across many sequential circuit elements
 
-          \item Expensive (one bit costs 6+ transistors)
+    \item Combinational logic evaluates for the length of the clock cycle
 
-        \end{itemize}
+    \item Clock cycle should be chosen to accommodate maximum combinational circuit delay
 
-      \item Dynamic RAM (DRAM)
+  \end{itemize}
 
-        \begin{itemize}
+\item Finite State Machines
 
-          \item Slower, one data word at a time, reading destroys content (refresh), needs special process for manufacturing
+  \begin{itemize}
 
-          \item Cheap (one bit costs only one transistor plus one capacitor)
+    \item What is a Finite State Machine (FSM)?
 
-        \end{itemize}
+      \begin{itemize}
 
-      \item Other storage technology (flash memory, hard disk, tape)
+        \item A discrete-time model of a stateful system
 
-        \begin{itemize}
+      \end{itemize}
 
-          \item Much slower, access takes a long time, non-volatile
+    \item An FSM can model
 
-          \item Very cheap
+      \begin{itemize}
 
-        \end{itemize}
+        \item A traffic light, an elevator, fan speed, a microprocessor, etc.
 
-    \end{itemize}
+      \end{itemize}
 
-  \item Asynchronous Sequential Circuit
+    \item Five Elements:
 
-    \begin{itemize}
+      \begin{itemize}
 
-      \item The output changes whenever the input changes. Sometimes, however, they do have an enable input. If this enable input is low, they maintain the previous output regardless of the changes in the inputs. If the enable is high, the output changes as the input changes. 
+        \item A finite number of states
 
-      \item Implemented with latches
+        \item A finite number of external inputs
 
-        \begin{itemize}
+        \item A finite number of external outputs
 
-          \item SR latch
+        \item An explicit specification of all state transitions
 
-            \begin{itemize}
+        \item An explicit specification of what determines state
 
-              \item R is used to ``reset'' or ``clear'' the element — set it to zero
+      \end{itemize}
 
-              \item S is used to ``set'' the element — set it to one
+    \item Each FSM consists of three separate parts
 
-              \item If both R and S are one, out could be either zero or one
+      \begin{itemize}
 
-                \begin{itemize}
+        \item Next state logic
 
-                  \item ``Quiescent'' state — holds its previous value
+        \item State register
 
-                \end{itemize}
+        \item Output logic
 
-            \end{itemize}
+      \end{itemize}
 
-          \item D latch
+    \item Moore vs. Mealy FSMs
 
-            \begin{itemize}
+      \begin{itemize}
 
-              \item Prevents downfall of SR latch
+        \item Next state is determined by the current state and inputs
 
-              \item Multiple D latches may be used to store more data
+        \item Two types of finite state machines differ in the output logic:
 
-              \item A single write enable signal for all latches may be used for simultaneous writes
+          \begin{itemize}
 
-              \item This makes a register, or a structure that stores more than one bit and can be read from and written to
+            \item Moore FSM: outputs depend only on the current state
 
-            \end{itemize}
+            \item Mealy FSM: outputs depend only on the current state and the inputs
 
-        \end{itemize}
+          \end{itemize}
 
-    \end{itemize}
+      \end{itemize}
 
-  \item Synchronous Sequential Circuits
-
-    \begin{itemize}
-
-      \item Synchronous devices are triggered on the rising edge or the falling edge of an external clock. Any change in inputs has to wait until the next rising (or falling) edge of the clock to affect the output.
-
-      \item Implemented with flip-flops:
-
-        \begin{itemize}
-
-          \item SR flip-flop
-
-          \item D flip-flop
-
-          \item JK flip-flop
-
-          \item T flip-flop
-
-        \end{itemize}
-
-      \item Currently, we cannot simply wire a clock to WE of a latch
-
-      \item Whenever the clock is high, the latch propagates D to Q
-
-      \item The latch is transparent
-
-    \end{itemize}
+  \end{itemize}
 
 \end{itemize}
 
