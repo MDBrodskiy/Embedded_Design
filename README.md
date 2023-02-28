@@ -42,6 +42,8 @@
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/Lab.pdf)
     * [**Lab Three**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%203/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%203/Lab.pdf)
+    * [**Lab Four**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%204/)
+        * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%204/Lab.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
