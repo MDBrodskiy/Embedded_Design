@@ -1,0 +1,138 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\pagestyle{fancy}
+
+\title{State Diagrams to State Tables}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Traffic Light Controller
+
+    \begin{itemize}
+
+      \item Traffic sensors ($T_A,T_B$) are true when there is traffic
+
+      \item The lights are denoted as $L_A,L_B$
+
+      \item Create an FSM ``Black Box'' with only inputs and outputs
+
+        \begin{itemize}
+
+          \item Inputs: Clock, Reset, $T_A$, $T_B$
+
+          \item Outputs: $L_A$, $L_B$
+
+        \end{itemize}
+
+      \item FSM State Transition Diagram
+
+        \begin{itemize}
+
+          \item Moore FSM: Outputs labeled in each state
+
+          \item States: Circles
+
+          \item Transitions: Arcs
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Three-Cycles High Laser Timer
+
+    \begin{itemize}
+
+      \item Four states
+
+      \item Wait in ``off'' state while b is 0 ($b'$)
+
+      \item When b is 1 (and rising clock edge), transition to On1
+
+        \begin{itemize}
+
+          \item Sets x to 1
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Vending Machine
+
+    \begin{itemize}
+
+      \item Releases item after 15 cents are deposited
+
+      \item Single coin slot for dimes, nickels
+
+      \item No change
+
+      \item Suitable Abstract representation
+
+        \begin{itemize}
+
+          \item Tabulate typical input sequence
+
+            \begin{itemize}
+
+              \item 3 nickels
+
+              \item nickel, dime
+
+              \item dime, nickel
+
+              \item two dimes
+
+            \end{itemize}
+
+          \item Draw state diagram
+
+            \begin{itemize}
+
+              \item Inputs: $N,D$, reset
+
+              \item Output Open chute
+
+            \end{itemize}
+
+          \item Assumptions
+
+            \begin{itemize}
+
+              \item Assume N and D asserted for one cycle
+
+              \item Each state has a self loop for $N=D=0$ (no coin)
+
+            \end{itemize}
+
+          \item To minimize number of states, reuse states when possible
+
+          \item Also, always uniquely encode states
+
+          \item Then use K-Maps to map to logic
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item In summary, keep track of inputs and outputs, minimize number of states through reuse, and use K-Maps to map logic
+
+\end{itemize}
+
+\end{document}
+
