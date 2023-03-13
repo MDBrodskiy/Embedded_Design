@@ -1,0 +1,128 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{C++}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Headers are included at the top, and are denoted by \code{\#include}
+
+    \begin{itemize}
+
+      \item We will almost always be defining a header for \code{cin} and \code{cout} (for input and output)
+
+    \end{itemize}
+
+  \item After you write a C++ program, you compile it; that is, you run a program called a compiler that checks whether the program follows the C++ syntax
+
+    \begin{itemize}
+
+      \item If it finds errors, it lists them
+
+      \item If there are no errors, it translates the C++ program into machine language which can be executed
+
+    \end{itemize}
+
+  \item Single-line comments begin with //
+
+  \item Indentation is for the convenience of the reader
+
+    \begin{itemize}
+
+      \item The compiler ignores white space
+
+    \end{itemize}
+
+  \item Input statements would begin with \code{cin >> a}, where \code{a} would be some kind of input, like a variable
+
+  \item Output statements begin with \code{cout << a}, where \code{a} would be some kind of output, like a String of text
+
+  \item Functions
+
+    \begin{itemize}
+
+      \item C++ functions are specialized blocks
+
+      \item Each one begins with a return type, function name, and input parameters, in the following format:
+
+        \begin{center}
+          \code{<return type> <name>(<params>) \{ \}}
+        \end{center}
+
+      \item All functions should be declared before main
+
+      \item Function names are generally camel-case (starts with lowercase, and every subsequent word is capitalized)
+
+    \end{itemize}
+
+  \item Always put comments in the code
+
+    \begin{itemize}
+
+      \item Start with a multi-line comment with author information
+        
+      \item Multi-line comments are denoted with \code{/*} and \code{*/}
+
+    \end{itemize}
+
+  \item Arrays and Pointers
+
+    \begin{itemize}
+
+      \item A pointer is merely an address of where a datum or structure is stored
+
+        \begin{itemize}
+
+          \item All pointers are typed based on the type of entity that they point to
+
+          \item To declare a pointer, use * preceding the variables name, ex: \code{int *x;}
+
+        \end{itemize}
+        
+      \item To set a pointer to a variable's address, use \& before the variable, as in \code{x= \&y;}
+
+        \begin{itemize}
+
+          \item \& means ``return the memory address of''
+
+          \item In this example, \code{x} will now point to \code{y}; that is, \code{x} stores \code{y}'s address
+
+        \end{itemize}
+
+      \item If you access \code{x}, you merely get the address
+
+      \item To get the value that \code{x} points to, use *, as in \code{*x}
+
+        \begin{itemize}
+
+          \item \code{*x = *x + 1;} will add one to \code{y}
+
+        \end{itemize}
+
+      \item * is known as the indirection (or dereferencing) operator because it requires a second address
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
