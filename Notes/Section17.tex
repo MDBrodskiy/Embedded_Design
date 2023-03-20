@@ -1,0 +1,136 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{C++ Functions}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Writing a \code{swap} function
+
+    \begin{itemize}
+
+      \item If we want to swap the values \code{a} and \code{b}, we need an intermediate value to hold the value as a transition
+
+    \end{itemize}
+
+  \item C++ offers an alternative parameter-passing method called pass-by-reference (using the \& operator)
+
+  \item When we pass by reference, the data being passed is the address of the argument, not the argument itself
+
+  \item Memory Layout
+
+    \begin{itemize}
+
+      \item Text: Program code
+
+      \item Data: Global variables
+
+      \item BSS: Global and static variables
+
+      \item Stack: Local variables
+
+      \item Heap: Dynamic memory
+
+    \end{itemize}
+
+  \item When is memory allocated?
+
+    \begin{itemize}
+
+      \item Global and static: Upon program start
+
+      \item Local variables: Upon function call
+
+      \item Dynamic memory: \code{new} keyword call (C++)
+
+    \end{itemize}
+
+  \item Stack
+
+    \begin{itemize}
+
+      \item Memory for C/C++ run-time system to keep track of active functions
+
+        \begin{itemize}
+
+          \item Stack pointer (SP)
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Dynamic Memory Allocation
+
+    \begin{itemize}
+
+      \item Operator \code{new} is used to request memory space enough to hold a specific data type or an array of the data type
+
+    \end{itemize}
+
+  \item \code{struct} is much like an array
+
+    \begin{itemize}
+
+      \item The structure stores multiple data
+
+        \begin{itemize}
+
+          \item You can access the individual data, or you can reference the entire structure
+
+        \end{itemize}
+
+      \item To access a particular member, you use the \code{.} operator
+
+        \begin{itemize}
+
+          \item As in \code{student.firstName} or \code{p1.x}
+
+            \begin{itemize}
+
+              \item We will see later that we will also use \code{->} to reference a field if the \code{struct} is pointed to by a pointer
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item We may pass \code{struct}s as parameters
+
+      \item The parameter would be entered as \code{struct} \code{<tag> <name>}
+
+      \item Passing a struct by value has two flaws:
+
+        \begin{itemize}
+
+          \item Twice as much memory is required
+
+          \item It requires copying each member of temp back into the members of the original \code{struct}
+
+          \item A pointer may be used instead
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
