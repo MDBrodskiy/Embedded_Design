@@ -36,6 +36,7 @@
     * [**Finite State Machines**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section14.pdf)
     * [**State Diagrams and State Tables**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section15.pdf)
     * [**C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section16.pdf)
+    * [**C++ Functions**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section17.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
