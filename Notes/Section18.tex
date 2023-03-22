@@ -1,0 +1,104 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{C++ Linked Lists and Arrays}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item If \code{a} is a pointer to a \code{struct}, then to access the \code{struct}'s members, we use the \code{->} operator, as in \code{a -> x}
+
+  \item A linked list is a series of connected nodes
+
+    \begin{itemize}
+
+      \item Each node contains at least:
+
+        \begin{itemize}
+
+          \item A piece of data (any type)
+
+          \item Pointer to the next node in the list
+
+          \item The head is the pointer to the first node
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Adding a node
+
+    \begin{itemize}
+
+      \item There are four steps to add a node to a linked list:
+
+        \begin{enumerate}
+
+          \item Allocate memory for the new node
+
+          \item Determine the insertion point (you need to know only the new node's predecessor or previous node (\code{prevNode}))
+
+          \item Point the new node to its successor
+
+          \item Point the predecessor (\code{prevNode}) to the new node
+
+        \end{enumerate}
+
+      \item Find the node you want to insert after
+
+      \item First, point the new node (\code{newNode}) to its successor
+
+      \item Second, point the predecessor (\code{prevNode}) to the new node
+
+      \item Deleting an element
+
+        \begin{itemize}
+
+          \item To delete the first element, change the link in the header
+
+          \item To delete some other element, change the link in its predecessor
+
+        \end{itemize}
+
+      \item Notice that both the insert and delete operations on a linked list must search the list for either the proper insertion point of to locate the node corresponding to the logical data value that is to be deleted
+
+      \item For Lab 7:
+
+        \begin{itemize}
+
+          \item In this lab we will practice the use of gdb as a tool to debug your programs through step-by-step execution and memory inspection. We will also continue to work with linked lists as an alternative data structure to store sequence of elements, where insertions and deletions have a constant cost. Finally, we will use gdb to explore the execution of a main program using linked lists.
+
+          \item A debugger is a tool used to inspect the memory of a program in a controlled execution environment, with the common objective of identifying the presence of bugs in the program. The gdb (GNU debugger) tool is shipped together with gcc in most Linux distributions, and can be accessed both on the DE1-SoC and the COE machines. Consider the following program, which assigns predefined values to a variable of type \code{Person}, and prints them through an invocation to function \code{PrintPerson}
+
+          \item In order to debug this program with gdb, you need to make sure that it was compiled with additional debug information, required by gdb to associate instructions in the binary file with lines of your source code. This is done by adding flag \code{-g} to your \code{g++} command line, as such:
+
+            \begin{center}
+              \code{>\_ g++ person.cpp -o person -g}
+            \end{center}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
