@@ -50,6 +50,11 @@
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%204/Lab.pdf)
     * [**Lab Five**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%205/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%205/Lab.pdf)
+    * [**Lab Six**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%206/)
+        * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%206/Lab.pdf)
+    * [**Lab Seven**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/)
+        * [**Pre-Lab**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/Prelab.pdf)
+        * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/Lab.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
