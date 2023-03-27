@@ -1,0 +1,124 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{Object Oriented C++}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Object-oriented programming (OOP) is more natural to describe the interactions between ``things'' (\textit{i}.\textit{e}. objects)
+
+  \item OOP provides better code reuse
+
+    \begin{itemize}
+
+      \item Commonalities among objects described by a class
+        
+      \item Commonalities among classes described by a base class (inheritance)
+        
+    \end{itemize}
+
+  \item Objects know what to do using their attributes: Each object responds differently to ``What is your name?''
+
+  \item OOP provides encapsulation: hide data that do not have to be visible to the other objects or protect data from unintentional, inconsistent changes
+
+  \item Objects Definition
+
+    \begin{itemize}
+
+      \item An object can be a ``concrete and tangible'' entity that can be separated with unique properties
+
+      \item An object can be abstract and does not have to be tangible
+
+    \end{itemize}
+
+  \item Objects' Three Properties
+
+    \begin{itemize}
+
+      \item The \code{Each} object is unique and can be identified (object's name) using name, serial number, relationship with another object, etc.
+
+      \item Each object has a set of attributes (data members), such as location, speed, size, address, phone number, on/off, etc.
+
+      \item Each object has unique behaviors (functions/methods), such as ring (phone), accelerate and move (car), take picture (camera), etc.
+
+    \end{itemize}
+
+  \item Class Definition — Access Control
+
+    \begin{itemize}
+
+      \item Information hiding — Encapsulation
+
+        \begin{itemize}
+
+          \item To prevent the internal representation from direct access from outside the class
+
+        \end{itemize}
+
+      \item Access Specifier Keywords
+
+        \begin{itemize}
+
+          \item \code{public}
+
+            \begin{itemize}
+
+              \item May be accessible from anywhere within the program
+
+            \end{itemize}
+
+          \item \code{private}
+
+            \begin{itemize}
+
+              \item May be accessed only by the member functions, and friends of this class, not open for non-member functions
+
+            \end{itemize}
+
+          \item \code{protected}
+
+            \begin{itemize}
+
+              \item Acts as public for derived classes (child)
+
+              \item Behaves as private for the rest of the program
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item Difference between classes and structs in C++
+
+        \begin{itemize}
+
+          \item The default access specifier is private in classes
+
+          \item The default access specifier is public in structs
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
