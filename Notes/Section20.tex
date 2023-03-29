@@ -58,6 +58,54 @@
 
     \end{itemize}
 
+  \item Three Benefits of Inheritance
+
+    \begin{enumerate}
+
+      \item You can reuse the methods and data of the existing class
+
+      \item You can extend the existing class by adding new data and new methods
+
+      \item You can modify the existing class by overloading its methods with your own implementations
+
+    \end{enumerate}
+
+  \item Protected and Private Inheritance
+
+    \begin{itemize}
+
+      \item With protected inheritance, public and protected members of $Y$ become protected in $X$ (\textit{i}.\textit{e}.\ classes derived from $X$ inherit the public members of $Y$ as protected)
+
+      \item With private inheritance, public and protected members of $Y$ become private in $X$ (\textit{i}.\textit{e}.\ classes derived from $X$ inherit the public members of $Y$ as private)
+
+      \item The default inheritance is private
+
+    \end{itemize}
+
+  \item Virtual Functions
+
+    \begin{itemize}
+
+      \item C++ uses virtual functions to implement run-time binding
+
+      \item To force the compiler to generate code that guarantees dynamic binding, the word virtual should appear before the function declaration in the definition of the base class
+
+    \end{itemize}
+
+  \item \texttt{mmap()} and \texttt{munmap()}
+
+    \begin{itemize}
+
+      \item Used to allocate memory space by mapping to new address
+
+      \item \texttt{mmap()} does the mapping
+
+      \item \texttt{munmap()} does the opposite — clears a memory address
+
+    \end{itemize}
+
+  \item Certain devices can be mapped from physical to virtual space through memory mapping
+
 \end{itemize}
 
 \end{document}
