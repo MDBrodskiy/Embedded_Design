@@ -57,6 +57,8 @@
     * [**Lab Seven**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/)
         * [**Pre-Lab**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/Prelab.pdf)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%207/Lab.pdf)
+    * [**Lab Eight**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%208/)
+        * [**Pre-Lab**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%208/Prelab.pdf)
 
 <!--
   * [**Chapter 1**](#Notes/Chapter\ 1)
