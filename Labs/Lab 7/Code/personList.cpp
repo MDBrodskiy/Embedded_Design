@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include <string>
 using namespace std;
 
@@ -117,14 +118,14 @@ int main() {
 	ListInitialize(&list);			// Initialize the list
 //*************** PUT THE REST OF YOUR CODE HERE  *****************
 
-	string options[] = {"Add a person", "Find a person", "Remove a person", "Print the list", "Exit"};
+	string options[] = {"Add a person", "Find a person", "Remove a person", "Print the list", "Sort the list", "Exit"};
 
 	int choice = 0;
 	int id = 1;
 
-	do {
+	while (choice != 6) {
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 6; i++) {
 
 			cout << (i + 1) << ". " << options[i] << endl;
 
@@ -183,7 +184,7 @@ int main() {
 
 			ListHead(&list);
 
-			for (int i = 0; i < list.count; i++) {
+			for (int i = list.count - 1; i >= 0; i--) {
 
 				PrintPerson(ListGet(&list));
 				ListNext(&list);
@@ -193,6 +194,104 @@ int main() {
 		}
 
 		else if (choice == 5) {
+
+            int sortParam;            
+            string people[list.count];
+            int ages[list.count];
+
+            cout << "Sort by name (1) or age (2)? ";
+            cin >> sortParam;
+
+            ListHead(&list);
+
+            for (int i = 0; i < list.count; i++) {
+
+                if (ListGet(&list) != NULL) {
+
+                    people[i] = ListGet(&list)->name;
+                    ages[i] = ListGet(&list)->age;
+
+                }
+
+                ListNext(&list);
+
+            }
+
+            ListHead(&list);
+
+            if (sortParam == 1) {
+
+                int smallest_index;
+
+	            for (int i = 0; i < list.count; i++) {
+
+		            smallest_index = i;
+
+		            for (int j = i + 1; j < list.count; j++) {
+	
+			            if (people[j] < people[smallest_index]) smallest_index = j;
+
+		            }
+	
+		            swap(people[i], people[smallest_index]);
+                    swap(ages[i], ages[smallest_index]);
+		
+	            }
+
+
+            } else if (sortParam == 2) {
+
+                int smallest_index;
+
+	            for (int i = 0; i < list.count; i++) {
+
+		            smallest_index = i;
+
+		            for (int j = i + 1; j < list.count; j++) {
+	
+			            if (ages[j] < ages[smallest_index]) smallest_index = j;
+
+		            }
+	
+		            swap(people[i], people[smallest_index]);
+                    swap(ages[i], ages[smallest_index]);
+		
+	            }
+
+            } else {
+
+                cout << "Invalid Option!" << endl;
+                break;
+
+            }
+
+            while (ListGet(&list) != NULL) {
+
+                ListRemove(&list);
+                ListNext(&list);
+
+            }
+
+            ListHead(&list);
+            ListRemove(&list);
+            id = 1;
+
+            for (int i = 0; i < (sizeof(people)/sizeof(*people)); i++) {
+
+                Person *curPerson = new Person;
+                curPerson->name = people[i];
+                curPerson->age = ages[i];
+                curPerson->id = id;
+                ListInsert(&list, curPerson);
+                id++;
+
+            }
+
+            cout << endl;
+
+        }
+
+        else if (choice == 6) { 
 
 			cout << "\"" << options[choice - 1] << "\"" << endl;
 
@@ -204,6 +303,6 @@ int main() {
 
 		}
 
-	} while (choice != 5);
+	}
 
 } //end main
