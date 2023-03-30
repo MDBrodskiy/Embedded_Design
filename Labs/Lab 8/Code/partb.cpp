@@ -4,7 +4,7 @@
  * @param switchNumSwitch number (0 to 9)
  * @returnSwitch value read
  */
-int Read1Switch(char * pBase, int switchNum) {
+int Read1Switch(char *pBase, int switchNum) {
 
     // Read the switch register
     int switchRegisterValue = RegisterRead(pBase, SW_BASE);
@@ -15,7 +15,7 @@ int Read1Switch(char * pBase, int switchNum) {
     // if the result is non-zero, then the switch is on, off otherwise
     int switchValue;
     //use the bitwise AND operator and compare result against the bit mask
-    if (switchRegisterValue & switchBitMask == switchBitMask) {
+    if (switchRegisterValue & switchBitMask) {
         switchValue = 1;
     } else {
         switchValue = 0;
