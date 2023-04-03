@@ -1,0 +1,162 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{Classes in C++}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item The \texttt{const} modifier forbids the compiler from modifying any variables
+
+    \begin{itemize}
+
+      \item This is common practice to prevent modification of variables in large code bases
+
+    \end{itemize}
+
+  \item Getters are also known as accessors
+
+  \item The \texttt{virtual} keyword
+
+  \item A \texttt{static} variable is the same across different instances of a class
+
+  \item Suppose that:
+
+    \begin{itemize}
+
+      \item You want to write a function to compare two ints
+
+      \item You want to write a function to compare two strings
+
+        \begin{itemize}
+
+          \item Function overloading
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Polymorphism in C++
+
+    \begin{itemize}
+
+      \item In C++: \texttt{PromisedType* var\_p = new ActualType();}
+
+      \item C++ has the notion of templates
+
+        \begin{itemize}
+
+          \item A function or class that accepts a \texttt{type} as a parameter
+
+          \item Supposing \texttt{template <typename T>} is passed to a function, the function may be used by describing the data type passed while passing it:
+
+            \begin{itemize}
+
+              \item For an int: \texttt{function<int>(nameOfInt)}
+
+              \item For a double: \texttt{function<double>(nameOfDouble)}
+
+              \item For a string: \texttt{function<std::string>(nameOfString)}
+
+            \end{itemize}
+
+        \end{itemize}
+
+      \item The compiler doesn't generate any code when it sees the template function
+
+        \begin{itemize}
+
+          \item It doesn't know what code to generate yet, since it doesn't know what types are involved
+
+        \end{itemize}
+
+      \item When the compiler sees the function being used, it then understands what types are involved
+
+    \end{itemize}
+
+  \item Templates are useful for classes as well
+
+    \begin{itemize}
+
+      \item One of the main motivations of templates
+
+      \item Imagine we want a class that holds a pair of things that we can set and get the value of, but we don't know what data type the things will be
+
+      \item Thing is replaced with template argument when the class is instantiated
+
+        \begin{itemize}
+
+          \item The class template parameter name is in scope of the template class definition and can be freely used there
+
+          \item Class template member functions are template functions with template parameters that match those of the class template
+
+            \begin{itemize}
+
+              \item These member functions must be defined as template functions outside of the class template definition (if not written inline)
+
+              \item The template parameter name does not need to match that used in the template class definition
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item Abstract Methods and Classes
+
+    \begin{itemize}
+
+      \item Sometimes we want to include a function in a class but only implement it in derived classes
+
+        \begin{itemize}
+
+          \item In Java, we would use an abstract method
+
+          \item In C++, we use a ``pure virtual'' function
+
+          \item For example, \texttt{string noise() = 0}
+
+          \item A class containing any pure virtual methods is abstract
+
+            \begin{itemize}
+
+              \item You can't create instances of an abstract class
+
+              \item Extend abstract classes and override methods to use them
+
+            \end{itemize}
+            
+          \item A class containing only pure virtual methods is the same as a Java interface
+
+            \begin{itemize}
+
+              \item Pure type specification without implementations
+
+            \end{itemize}
+
+        \end{itemize}
+
+    \end{itemize}
+
+\end{itemize}
+
+\end{document}
+
