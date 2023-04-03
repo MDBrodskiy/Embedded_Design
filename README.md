@@ -40,6 +40,7 @@
     * [**C++ Linked Lists and Arrays**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section18.pdf)
     * [**Object Oriented C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section19.pdf)
     * [**Inheritance in C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section20.pdf)
+    * [**Classes in C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section21.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
