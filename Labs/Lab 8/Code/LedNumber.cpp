@@ -22,9 +22,8 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <iostream>
-#include <bitset>
-#include <string>
 #include <cmath>
+#include <unistd.h>
 
 using namespace std;
 
@@ -194,7 +193,7 @@ void WriteAllLeds(char *pBase, int value) {
     
 }
 
-bool prevVal[] = {true, true, true, true}; // Store previous button values globally
+bool prevVal[] = {false, false, false, false}; // Store previous button values globally
 bool butValue[] = {false, false, false, false};
 
 int PushButtonGet(char *pBase) {
@@ -214,28 +213,30 @@ int PushButtonGet(char *pBase) {
     //use the bitwise AND operator and compare result against the bit mask
     for (int i = 0; i < 4; i++) {
 
-        if (butRegisterValue & butBitMask[i] && prevVal[i] != butValue[i]) {
+        if (butRegisterValue & butBitMask[i]) {
 
             butValue[i] = true;
-	    prevVal[i] = !prevVal[i];
+	    if (butValue[i] != prevVal[i]) { prevVal[i] = !prevVal[i]; }
 
         } else {
 
             butValue[i] = false;
+	    if (butValue[i] != prevVal[i]) { prevVal[i] = !prevVal[i]; }
 
         }
     }
 
     int quantDiff = 0;
+    bool diff[] = {false, false, false, false};
 
     for (int i = 0; i < 4; i++) {
 
-	    if (butValue[i] && prevVal[i]) {
+	if (butValue[i] && prevVal[i]) {
 
-	        diff[i] = true;
-	        quantDiff++;
+	    diff[i] = true;
+	    quantDiff++;
 
-	    }
+	}
 
     }
 
@@ -243,44 +244,13 @@ int PushButtonGet(char *pBase) {
     else if (quantDiff == 0) return -1;
     else {
 
-	    for (int i = 0; i < 4; i ++) {
+	for (int i = 0; i < 4; i ++) {
 
 	    if (diff[i]) return i;
 
-	    }
-
-    }
-
-}
-
-int BinToDec(int val) {
-
-    int sum = 0;
-    for (int i = 0; i < 10; i++) {
-
-	if (val % 10 == 1) { 
-
-	    sum += pow(2,i);
-	    val = val / 10;
-
 	}
 
-    } return val;
-
-}
-
-int DecToBin(int val) {
-
-    int binary = 0;
-    int base = 1;
-
-    while (val > 0) {
-
-	binary += (val % 2) * base;
-	val /= 2;
-	base *= 10;
-
-    } return binary;
+    }
 
 }
 
@@ -294,34 +264,35 @@ int main() {
     // ************** Put your code here **********************
     while(true) {
 
+	usleep(225000);
 	int change = PushButtonGet(pBase);
 	if (change == 0) {
 
 	    ledDisp++;
-	    if (ledDisp > 1023) ledDisp = 0;
 	    WriteAllLeds(pBase, ledDisp);
+	    if (ledDisp > 1023) ledDisp = 0;
 
 	} else if (change == 1) {
 
 	    ledDisp -= 1;
-	    if (ledDisp < 0) ledDisp = 0;
 	    WriteAllLeds(pBase, ledDisp);
+	    if (ledDisp < 0) ledDisp = 1023;
 
 	} else if (change == 2) {
 
-	    ledValBin = DecToBin(ledDisp) << 1;	    
-	    ledDisp = BinToDec(ledValBin);
+	    ledDisp *= 2;
+	    if (ledDisp > 1023) ledDisp -= 1024;
 	    WriteAllLeds(pBase, ledDisp);
 
 	} else if (change == 3) {
 
-	    ledValBin = DecToBin(ledDisp) >> 1;	    
-	    ledDisp = BinToDec(ledValBin);
+	    ledDisp /= 2;
 	    WriteAllLeds(pBase, ledDisp);
 
 	} else if (change == 4) {
 
 	    WriteAllLeds(pBase, ReadAllSwitches(pBase));
+	    ledDisp = ReadAllSwitches(pBase);
 
 	}
 
