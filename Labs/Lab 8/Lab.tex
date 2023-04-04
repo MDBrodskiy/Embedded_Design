@@ -1,0 +1,161 @@
+\documentclass[
+	letterpaper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{CSUniSchoolLabReport}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Memory-Mapped I/O and Object-Oriented Programming\\ Embedded Design: Enabling Robotics \\ EECE2160} % Report title
+
+\author{Michael \textsc{Brodskiy}\\ \small \href{mailto:Brodskiy.M@Northeastern.edu}{Brodskiy.M@Northeastern.edu}}
+
+\date{April 6, 2023} % Date of the report
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\maketitle % Insert the title, author and date using the information specified above
+
+\begin{center}
+	\begin{tabular}{l r}
+		Date Performed: & March 30, 2023 \\ % Date the experiment was performed
+        Partner: & Dylan \textsc{Powers} \\ % Partner names
+		Instructor: & Professor \textsc{Shazli} % Instructor/supervisor
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{abstract}
+
+  This laboratory experiment, intended to introduce memory mapping and object-oriented programming concepts in C++, involved reading and writing to the DE1-SoC FPGA board. Starting with some pre-made register read and write code, conversions between binary and decimal number systems were used to infer the status of switches, LEDs, and push-buttons on the board. Functions were then written to interface with the board; these functions were then converted to an object-oriented program, with two classes: \texttt{DE1SoCfpga} and \texttt{LEDControl}.
+
+\end{abstract}
+
+\begin{flushleft}
+
+  \textsc{Keywords:} \underline{memory mapping}, \underline{object-oriented}, \underline{read and write}, \underline{DE1-SoC}, \underline{binary}, \underline{decimal}, \underline{function}, \underline{class}
+
+\end{flushleft}
+
+\newpage
+
+\section{Equipment}
+
+\hspace{.5 in} Available equipment included:\\
+
+\begin{itemize}
+
+  \item DE1-SoC board
+
+  \item DE1-SoC Power Cable
+
+  \item USB-A to USB-B Cable
+
+  \item Computer
+
+  \item MobaXTerm SSH Terminal
+
+  \item USB-to-ethernet Adapter
+
+\end{itemize}
+
+\section{Introduction}
+
+\section{Discussion \& Analysis} 
+
+\subsection{Pre-lab}
+
+  \item Existing Functions:
+
+    \begin{enumerate}
+
+      \item \texttt{char *Initialize(int *fd)}
+
+        First and foremost, \texttt{Initialize()} points the \texttt{fd} pointer at the location of a physical device in memory, and gives it read, write, and synchronization access. Next, an \texttt{if} statement checks for the possibility of errors; that is, if the pointer \texttt{fd} is equal to -1, then an error is printed, and the program exits with exit code 1 (error). The physical device is then mapped to a virtual device, and given a virtual memory address, using the \texttt{mmap()} function. Another \texttt{if} statement then checks whether the memory mapping was successful or not; if yes, the virtual memory location of the device is returned. Otherwise, an error is printed, the \texttt{fd} pointer connection to memory is closed, and exit code 1 is returned.
+
+      \item \texttt{void Finalize(char *pBase, int fd)}
+
+        The \texttt{Finalize()} function checks whether the device attached to the memory address pointer \texttt{pBase} is successfully unmapped from memory. If successful, it closes the connection to the device using address \texttt{fd}. Otherwise, an error is printed, and exit code 1 is returned.
+
+      \item \texttt{int RegisterRead(char *pBase, unsigned int reg\_offset)}
+
+        By combining the base address pointer \texttt{pBase} and the device mapping offset value (\texttt{reg\_offset}), the value that is read from the device at the memory address \texttt{pBase} is returned by \texttt{RegisterRead()}.
+
+      \item \texttt{void RegisterWrite(char *pBase, unsigned int reg\_offset, int value)}
+
+        Similar to \texttt{RegisterRead()}, \texttt{RegisterWrite} combines the base address pointer \texttt{pBase} and the device mapping offset, \texttt{reg\_offset}, to find the device, and then assigns a specified value to that address.
+
+    \end{enumerate}
+
+  \item Writing a switch read function:
+
+   \lstinputlisting[
+    caption=Switch Reading Code, % Caption above the listing
+    label=lst:L1, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{Code/partb.cpp}
+
+\item Writing a switch write function:
+
+ \lstinputlisting[
+    caption=Switch Writing Code, % Caption above the listing
+    label=lst:L2, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{Code/partc.cpp}
+
+
+\subsection{Assignment 1}
+
+\subsection{Assignment 2}
+
+\subsection{Assignment 3}
+
+\subsection{Assignment 4}
+
+\subsection{Assignment 5}
+
+\section{Conclusion}
+
+Overall, this lab was an effective introduction to the concept of C++ object-oriented programming. By first having the user create functions to interface with the board, and then having the user create a class, it was easier to grasp the idea of a class. The conversion of the program from procedural to object-oriented was, in this manner, facilitated.
+
+\section{Appendix}
+
+\lstinputlisting[
+    caption=Object-Oriented Source Code, % Caption above the listing
+    label=lst:L6, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{Code/PushButtonClass.cpp}
+
+\end{document}
