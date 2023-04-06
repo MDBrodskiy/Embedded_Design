@@ -42,6 +42,7 @@
     * [**Inheritance in C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section20.pdf)
     * [**Classes in C++**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section21.pdf)
     * [**Header Files and Compiling Multiple Files**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section22.pdf)
+    * [**Final Project**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section23.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)

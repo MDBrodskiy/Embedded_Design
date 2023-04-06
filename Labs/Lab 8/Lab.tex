@@ -66,6 +66,8 @@
 
 \section{Introduction}
 
+Memory-mapping is a technique that accesses the virtual file representing I/O devices and maps a set of control flags into memory locations which enables a user to modify or read the state of the device. In Lab 8, the goal was to introduce the concept of memory-mapped I/O to access devices available on the DE1-SoC, including the LEDs, the switches, and the push buttons. To accomplish this, the \texttt{/dev/mem} file was the accessed file that was used to map physical addresses to virtual addresses. Then with the mapped relations between the physical and virtual addresses, programs were written to control the LEDs, switches, and push buttons using pointers.
+
 \section{Discussion \& Analysis} 
 
 \subsection{Pre-lab}
