@@ -1,0 +1,86 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{Header Files and Compiling Multiple Files}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Advantages of multiple files
+
+    \begin{itemize}
+
+      \item Reduce redundant work
+
+      \item Improve portability
+
+      \item Enhance performance
+
+      \item Partition work for collaboration
+
+      \item Save compilation time
+
+    \end{itemize}
+
+  \item A header file is a file with extension \texttt{.h}
+
+  \item Contains C/C++ definitions and functions
+
+  \item Header files can contain:
+
+    \begin{itemize}
+
+      \item All the constants
+
+        \begin{center}
+          \texttt{static const double PI = 3.14159}
+        \end{center}
+
+      \item Macros
+
+        \begin{center}
+          \texttt{\#define PI 3.14159}
+        \end{center}
+
+      \item Function prototypes
+
+        \begin{center}
+          \texttt{void PrintMyStack()}
+        \end{center}
+
+      \item \texttt{struct} data structures definition
+
+      \item System-wide global variables
+
+    \end{itemize}
+
+  \item For a header file, it would be included using:
+
+    \begin{center}
+      \texttt{\#include ``<FILENAME>''}
+    \end{center}
+
+  \item We will later convert code from a single cpp file to headers and source files
+
+\end{itemize}
+
+\end{document}
+
