@@ -131,13 +131,70 @@ Memory-mapping is a technique that accesses the virtual file representing I/O de
 
 \subsection{Assignment 1}
 
+The goal of Assignment 1 was to write a program to control the LEDs and switches on the DE1-SoC board. The program had to be able to perform two main functions. The first function was to enable a user to enter a number from 0 to 9 and have the program read the corresponding switch. This function was called \texttt{Read1Switch}. As for the second main function called \texttt{Write1Switch}, its function was to give the user the ability to enter an LED number and a state and have the corresponding LED turn on or off. This program was run multiple times and functionality was confirmed.
+
 \subsection{Assignment 2}
+
+The goal of Assignment 2 was to write a function that can read all the states of the switches called \texttt{ReadAllSwitches()}. This was done by reading the data register for the switches as shown in Listing \ref{lst:L3}.
+
+\lstinputlisting[
+    caption=Read All Switches Code, % Caption above the listing
+    label=lst:L3, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+    firstline=179,
+    lastline=183
+  ]{Code/LedNumber.cpp}
+
+In the \texttt{ReadAllSwitches()} function, board is an object of the class containing the function \texttt{RegisterRead()}. Thus, \texttt{ReadAllSwitches} is calling the \texttt{RegisterRead()} function which is a function that reads all the values stored within a register at a given address. This is why \texttt{SW\_BASE} is the input parameter to the \texttt{RegisterRead()} function. \texttt{SW\_BASE} is the switches offset, which allows the program to where the information for the switches is stored relative to the base offset. \\
+
+Some test combinations used to verify the correct behavior were the binary equivalent of the decimal values 32 and 177.  When value 32 was inputted, meaning switch 5 was turned on, the program correctly identified that switch 5 was the only switch on. Similarly for the input 177, switches 0, 4, 5, and 7 were turned on, and the program correctly identified which switches were on and which were still off. With the success of these two tests, the correct behavior of the code was confirmed.
 
 \subsection{Assignment 3}
 
+The goal of Assignment 3 was to create a function that receives, as arguments, the base address pBase and an integer value between 0 and 1023, and writes to all the LEDs. The function that was created was called WriteAllLeds and is shown in Listing \ref{lst:L4}.
+
+\lstinputlisting[
+    caption=Write All LEDs Code, % Caption above the listing
+    label=lst:L4, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+    firstline=190,
+    lastline=194
+  ]{Code/LedNumber.cpp}
+
+In order to test the functionality of this function, the tests were run to verify correct behavior. Some inputs that were tested were the binary numbers for 124 and 355. When these numbers were inputted via the switches, LED 0, 2, 3, 4, 5, and 6 were turned on for the input 124 and LED 0, 1, 5, 6, and 8 were turned on for input 355. 
+
 \subsection{Assignment 4}
 
+Assignment 4 can be subdivided into two parts. The first part had the goal of writing a function named \texttt{PushButtonGet()}. This function had to return -1 if no push button was pressed, a value between 0 and 3 identifying the button pressed if only one button was pressed, or a value of 4 if two or more buttons were pressed at the same time. As for the second part of Assignment 4, the goal was to write a program that increments the counter by 1 if the KEY0 button is pressed, decrements the counter by 1 if the KEY1 button is pressed, shifts the current count to the right one bit if the KEY2 button is pressed, shifts the current count to the left one bit if the KEY3 button is pressed, and resets the count to the value specified by the switches if one or more buttons are pressed. The program created to do this was titled \texttt{PushButton.cpp} and is shown in the appendix. Additionally, a video demonstrating the behavior of the code can be seen below in Figure \ref{fig:1}.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.75\textwidth]{Figures/QR.png}
+  \caption{Scan the Code to See Video}
+  \label{fig:1}
+\end{figure}
+
 \subsection{Assignment 5}
+
+The goal of Assignment 5 was to use object oriented programming to abstract the functionality related with I/O operations on the DE1-SoC, including initializing and finalizing the I/O memory maps, and the read and write operations on I/O memory locations. To accomplish this goal, a class called \texttt{DE1SoCfpga} was created and constructors and destructors were used for initialization and finalization respectively. The program written with object oriented programming was called \texttt{PushButtonClass.cpp} and the contents of this program can be seen in the appendix. 
 
 \section{Conclusion}
 
