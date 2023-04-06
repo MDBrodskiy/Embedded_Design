@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{The Final Lab Project}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item In this project, you will utilize the 7-segment displays on the DE1-SoC board to display characters, decimal, and hexadecimal values using object oriented design in C++
+
+  \item The DE1-SoC has six 7-segment displays controlled by two parallel ports
+
+  \item Each segment (6 to 0) is controlled by one bit, with the first parallel port controlling the first four displays (HEX3, HEX2, HEX1, \& HEX0), and the second parallel port controlling the last two displays (HEX5 \& HEX4)
+
+  \item Data can be written into these two registers, and read back, by using word operations
+
+  \item The seven segment display table:
+
+    \begin{center}
+      \begin{tabular}[h!]{| c | c | c | c | c | c | c | c | c | c |}
+        \hline
+        \# & 6 & 5 & 4 & 3 & 2 & 1 & 0 & Decimal & Hex \\
+        \hline
+        0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 63 & 0x3F\\
+        \hline
+        1 & & & & & & & & & \\
+        \hline
+        2 & & & & & & & & & \\
+        \hline
+        3 & & & & & & & & & \\
+        \hline
+        4 & & & & & & & & & \\
+        \hline
+        5 & & & & & & & & & \\
+        \hline
+        6 & & & & & & & & & \\
+        \hline
+        7 & & & & & & & & & \\
+        \hline
+        8 & & & & & & & & & \\
+        \hline
+        9 & & & & & & & & & \\
+        \hline
+        A & & & & & & & & & \\
+        \hline
+        b & & & & & & & & & \\
+        \hline
+        C & & & & & & & & & \\
+        \hline
+        d & & & & & & & & & \\
+        \hline
+        e & & & & & & & & & \\
+        \hline
+        f & & & & & & & & & \\
+        \hline
+      \end{tabular}
+    \end{center}
+
+  \item The \texttt{DE1SoCfpga} class from the previous lab should be converted to a header file called \texttt{DE1SoCfpga.h}
+
+  \item It should be implemented in a file called \texttt{DE1SoCfpga.cpp}
+
+  \item The following functions need to be part of the header:
+
+    \begin{itemize}
+
+      \item Constructor initializing the memory-mapped I/O
+
+      \item Destructor finalizing the memory-mapped I/O
+
+      \item Function \texttt{RegisterWrite(offset, value)}, which writes a value into a register given its offset
+
+      \item Function \texttt{RegisterRead(offset)}, returning the value read from a register given its offset
+
+    \end{itemize}
+
+  \item The class \texttt{DE1SoCfpga} will be the base class initializing memory and controlling register access
+
+  \item There are two offsets for the hex displays:
+
+    \begin{center}
+      \texttt{const unsigned int HEX3\_HEX0\_Base = 0x00000020;}
+    \end{center}
+
+    \begin{center}
+      and
+    \end{center}
+
+    \begin{center}
+      \texttt{const unsigned int HEX5\_HEX4\_Base = 0x00000030;}
+    \end{center}
+
+  \item For the seven segment display, a new class should be created, called \texttt{SevenSegment}, with the following functionality:
+
+    \begin{itemize}
+
+      \item Two private data members: \texttt{unsigned int reg0\_hexValue} and \texttt{unsigned int reg1\_hexValue} representing the state of the two 7-segment display registers
+
+      \item These variables should be updated every time a new value is written to the corresponding registers
+
+      \item A class constructor that initializes the private data members
+
+      \item A class destructor that calls \texttt{Hex\_ClearAll()} function to clear the displays
+
+      \item A public function called \texttt{Hex\_ClearAll()} that clears (turns off) all the 7-segment displays
+
+      \item A public function called \texttt{Hex\_ClearSpecific(int index)} that clears (turns off) a specified 7-segment display, specified by \texttt{index}, where the index (0 to 5) represents one of the six displays
+
+      \item A public function called \texttt{Hex\_WriteSpecific(int display\_id,  int  value)} that writes a hexadecimal digit specified by a decimal value(0 to 15) to the specified 7-segment display, specified by \texttt{display\_id}, where the \texttt{display\_id} (0 to 5) represents one of the six displays
+
+      \item A public function called \texttt{Hex\_WriteNumber(int number)} that  writes  a  positive  or  negative number on the 7-segment displays 
+
+      \item Use the \texttt{main()} function provided to test the file
+
+    \end{itemize}
+
+  \item The class \texttt{SevenSegment} inherits the class \texttt{DE1SoCfpga} and uses the functions \texttt{RegisterWrite(...)} and \texttt{RegisterRead(...)} as needed
+
+  \item Create a global \texttt{const} array with 16 elements (see the declaration below)
+
+  \item Each element contains the decimal (or Hex) code from the table above that represents the display segments to be turned ON or OFF when writing to a 7-segment display
+
+  \item The index corresponds to the digits to write on the 7-segment display
+
+  \item Include the array in the \texttt{SevenSegment.h} file to use when writing to the 7-segment displays. The arrays shoulder have the following format:
+
+    \begin{center}
+      \texttt{const unsigned int bit\_values[16] = \{\ldots\};}
+    \end{center}
+
+  \item The seven segment displays should then be integrated with \texttt{LEDControl} from the previous lab
+
+\end{itemize}
+
+\end{document}
+
