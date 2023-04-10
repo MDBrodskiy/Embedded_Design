@@ -1,0 +1,102 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Written By Michael Brodskiy
+% Class: Embedded Design: Enabling Robotics
+% Professor: S. Shazli
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\include{Includes.tex}
+
+\def\code#1{\texttt{#1}}
+
+\pagestyle{fancy}
+
+\title{Makefiles}
+\date{\today}
+\author{Michael Brodskiy\\ \small Professor: S. Shazli}
+
+\begin{document}
+
+\maketitle
+
+\thispagestyle{fancy}
+
+\newpage
+
+\begin{itemize}
+
+  \item Header files consist of definitions of functions and declarations of variables
+
+  \item \texttt{\#ifndef} is used to define something in the code if it is not already defined (usually used for constants)
+
+  \item \texttt{\#define} is used to just define something
+
+  \item When compiling multiple files, the following rules apply:
+
+    \begin{itemize}
+
+      \item Compiled:
+
+        \begin{itemize}
+
+          \item .c or .cpp
+
+        \end{itemize}
+
+      \item Not Compiled:
+
+        \begin{itemize}
+
+          \item .h or .hpp
+
+        \end{itemize}
+
+    \end{itemize}
+
+  \item \texttt{make} is a tool that is designed to allow programmers to efficiently compile large complex programs with many components easily
+
+  \item The \texttt{make} utility allows us to only compile those that have changed and the modules that depend upon them
+
+  \item If any of the associated files have been modified, then it recompiles
+
+  \item If the file \texttt{<target>} does not exist, or the dependency files are younger then execute \texttt{<buildCommand>}
+
+  \item To run a makefile and compile a program, we run the command \texttt{make}
+
+  \item The \texttt{make} command will build the first target which is the only target in this example
+
+  \item If you want to build a specific target if there are multiple targets, you can specify the target with the \texttt{make} command
+
+  \item A \texttt{clean} target in a makefile removes or cleans the system of specified files
+
+    \begin{itemize}
+
+      \item Executed using \texttt{make clean}
+
+    \end{itemize}
+
+  \item Variables/symbols may be used to make the makefile easier to construct
+
+    \begin{itemize}
+
+      \item For example, use something like \texttt{PROJECT = homework2} as a variable, and then \texttt{\$(PROJECT)} to refer to it
+
+      \item ``Phony'' targets do not create files, will always be executed when called
+
+      \item Flags and compiler may be specified as well
+
+    \end{itemize}
+
+  \item A makefile will be necessary for the final project
+
+  \item The \texttt{LEDControl} class from the previous lab will be modified to consist of multiple files, which create an object \texttt{DE1Socfpga} with a header file
+
+  \item This will then be applied to seven segment displays
+
+  \item The displays will be controlled by objects with header files as well
+
+  \item Bit manipulation will be necessary to control the displays
+
+\end{itemize}
+
+\end{document}
+
