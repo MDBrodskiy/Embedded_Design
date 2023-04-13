@@ -45,12 +45,12 @@ void SevenSegment::Hex_ClearSpecific(int index) {
     if (index < 4) {
 
         mask = 0xFF << (8 * index);
-        RegisterWrite(HEX3_HEX0_BASE, (reg0_hexValue & ~mask))
+        RegisterWrite(HEX3_HEX0_BASE, (reg0_hexValue & ~mask));
 
     } else if (index < 6) {
 
         mask = 0xFF << (8 * (index - 4));
-        RegisterWrite(HEX5_HEX4_BASE, (reg1_hexValue & ~mask))
+        RegisterWrite(HEX5_HEX4_BASE, (reg1_hexValue & ~mask));
 
     } else {
 
@@ -62,12 +62,14 @@ void SevenSegment::Hex_ClearSpecific(int index) {
 
 void SevenSegment::Hex_WriteSpecific(int display_id, int value) {
 
-    if (index < 4) {
+    unsigned int mask;
+
+    if (display_id < 4) {
 
         mask = ~bit_values[value] << (8 * display_id);
         RegisterWrite(HEX3_HEX0_BASE, (reg0_hexValue & ~mask));
 
-    } else if (index < 6) {
+    } else if (display_id < 6) {
 
         mask = ~bit_values[value] << (8 * (display_id - 4));
         RegisterWrite(HEX5_HEX4_BASE, (reg1_hexValue & ~mask));
@@ -82,6 +84,32 @@ void SevenSegment::Hex_WriteSpecific(int display_id, int value) {
 
 void SevenSegment::Hex_WriteNumber(int number) {
 
+    int count = 0;
 
+    while (number > 0) {
+
+        if (number % 100 < 16) {
+
+            Hex_WriteSpecific(count, number % 100);
+            number /= 100;
+
+        }
+
+        else {
+
+            Hex_WriteSpecific(count, number % 10);
+            number /= 10;
+
+        }
+
+        count++;
+
+    }
+
+}
+
+int main() {
+
+    cout << "test" << endl;
 
 }
