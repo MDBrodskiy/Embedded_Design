@@ -16,8 +16,6 @@
  * =====================================================================================
  */
 
-#ifndef DE1SOCFPGA_H
-#define DE1SOCFPGA_H
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -30,7 +28,8 @@
 using namespace std;
 
 // Physical base address of FPGA Devices
- const unsigned int LW_BRIDGE_BASE = 0xFF200000; // Base offset
+const unsigned int LW_BRIDGE_BASE = 0xFF200000; // Base offset
+
 // Length of memory-mapped IO window
 const unsigned int LW_BRIDGE_SPAN = 0x00005000; // Address map size
 
@@ -54,5 +53,3 @@ class DE1SoCfpga {
         int RegisterRead(unsigned int offset);
 
 };
-
-#endif

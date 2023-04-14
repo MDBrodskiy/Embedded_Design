@@ -103,8 +103,8 @@ void SevenSegment::Hex_WriteNumber(int number) {
     while (number > 0) {
 
 
-        Hex_WriteSpecific(count, number % 10);
-        number /= 10;
+        Hex_WriteSpecific(count, number % 16);
+        number /= 16;
 
         count++;
 

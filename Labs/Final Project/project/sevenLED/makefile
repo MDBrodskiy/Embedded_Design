@@ -1,7 +1,17 @@
-COMP = g++
-FLAGS = -g -o
-SS = SevenSegment
-DE1 = DE1SoCfpga
+main: Main.o LEDControl.o SevenSegment.o DE1SoCfpga.o
+	g++ -g -Wall Main.o LEDControl.o SevenSegment.o DE1SoCfpga.o -o main
 
-$(SS) : $(SS).cpp $(SS).h $(DE1).cpp $(DE1).h
-	$(COMP) $(FLAGS) $(SS) $(SS).cpp 
+Main.o: Main.cpp LEDControl.h SevenSegment.h DE1SoCfpga.h
+	g++ -g -Wall Main.cpp -c
+
+LEDControl.o: LEDControl.cpp LEDControl.h DE1SoCfpga.h
+	g++ -g -Wall LEDControl.cpp -c
+
+SevenSegment.o: SevenSegment.cpp SevenSegment.h DE1SoCfpga.h
+	g++ -g -Wall SevenSegment.cpp -c
+
+DE1SoCfpga.o: DE1SoCfpga.cpp DE1SoCfpga.h
+	g++ -g -Wall DE1SoCfpga.cpp -c
+
+clean:
+	rm main Main.o LEDControl.o SevenSegment.o DE1SoCfpga.o
