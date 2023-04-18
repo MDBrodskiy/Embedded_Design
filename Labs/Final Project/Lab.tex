@@ -1,0 +1,144 @@
+\documentclass[
+	letterpaper, % Paper size, specify a4paper (A4) or letterpaper (US letter)
+	10pt, % Default font size, specify 10pt, 11pt or 12pt
+]{CSUniSchoolLabReport}
+
+%----------------------------------------------------------------------------------------
+%	REPORT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{Controlling Seven Segment Displays Using Object-Oriented Programming\\ Embedded Design: Enabling Robotics \\ EECE2160} % Report title
+
+\author{Michael \textsc{Brodskiy}\\ \small \href{mailto:Brodskiy.M@Northeastern.edu}{Brodskiy.M@Northeastern.edu}}
+
+\date{April 6, 2023} % Date of the report
+
+%----------------------------------------------------------------------------------------
+
+
+\begin{document}
+
+\maketitle % Insert the title, author and date using the information specified above
+
+\begin{center}
+	\begin{tabular}{l r}
+		Date Performed: & April 12, 2023 \\ % Date the experiment was performed
+        Partner: & Dylan \textsc{Powers} \\ % Partner names
+		Instructor: & Professor \textsc{Shazli} % Instructor/supervisor
+	\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{abstract}
+
+  This laboratory experiment was intended to be a conclusion to the course, which integrates all concepts covered, including, but not limited to, bits and hexadecimal, digital logic, object-oriented C++, and headers and makefiles. By integrating all of these concepts together, with minimal assistance, the course leaves us with proficient knowledge of them. As a result of the lab, three header files, \texttt{DE1SoCfpga.h}, \texttt{LEDControl.h}, and \texttt{SevenSegment.h}, and their respective \texttt{.cpp} files were created, in addition to a \texttt{main.cpp} file containing code to interact with headers, and a makefile to compile everything together.
+
+\end{abstract}
+
+\begin{flushleft}
+
+  \textsc{Keywords:} \underline{bits}, \underline{hexadecimal}, \underline{digital logic}, \underline{object-oriented}, \underline{headers}, \underline{makefiles}, \underline{\texttt{DE1SoCfpga}}, \underline{\texttt{LEDControl}}, \underline{\texttt{SevenSegment}} 
+
+\end{flushleft}
+
+\newpage
+
+\section{Equipment}
+
+\hspace{.5 in} Available equipment included:\\
+
+\begin{itemize}
+
+  \item DE1-SoC board
+
+  \item DE1-SoC Power Cable
+
+  \item USB-A to USB-B Cable
+
+  \item Computer
+
+  \item MobaXTerm SSH Terminal
+
+  \item USB-to-ethernet Adapter
+
+  \item \text{gcc} compiler
+
+\end{itemize}
+
+\section{Introduction}
+
+\section{Discussion \& Analysis} 
+
+\subsection{Assignment 1}
+
+The purpose of assignment one was simply logic-based. It was necessary to consider the 7-bit logic behind seven-segment displays, and generate a table representing a hexadecimal number or letter in decimal, binary, and hexadecimal. The table is shown below.
+
+   \begin{center}
+      \begin{tabular}[h!]{| c | c | c | c | c | c | c | c | c | c |}
+        \hline
+        \# & 6 & 5 & 4 & 3 & 2 & 1 & 0 & Decimal & Hex \\
+        \hline
+        0 & 0 & 1 & 1 & 1 & 1 & 1 & 1 & 63 & 0x3F\\
+        \hline
+        1 & 0 & 0 & 0 & 0 & 1 & 1 & 0 & 6 & 0x6\\
+        \hline
+        2 & 1 & 0 & 1 & 1 & 0 & 1 & 1 & 91 & 0x5B\\
+        \hline
+        3 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 79 & 0x4F\\
+        \hline
+        4 & 1 & 1 & 0 & 0 & 1 & 1 & 0 & 102 & 0x66\\
+        \hline
+        5 & 1 & 1 & 0 & 1 & 1 & 0 & 1 & 109 & 0x6D\\
+        \hline
+        6 & 1 & 1 & 1 & 1 & 1 & 0 & 1 & 125 & 0x7D\\
+        \hline
+        7 & 0 & 0 & 0 & 0 & 1 & 1 & 1 & 7 & 0x7\\
+        \hline
+        8 & 1 & 1 & 1 & 1 & 1 & 1 & 1 & 127 & 0x7F\\
+        \hline
+        9 & 1 & 1 & 0 & 1 & 1 & 1 & 1 & 111 & 0x6F\\
+        \hline
+        A & 1 & 1 & 1 & 0 & 1 & 1 & 1 & 119 & 0x77\\
+        \hline
+        b & 1 & 1 & 1 & 1 & 1 & 0 & 0 & 124 & 0x7C\\
+        \hline
+        C & 0 & 1 & 1 & 1 & 0 & 0 & 1 & 57 & 0x39\\
+        \hline
+        d & 1 & 0 & 1 & 1 & 1 & 1 & 0 & 94 & 0x5E\\
+        \hline
+        e & 1 & 1 & 1 & 1 & 0 & 0 & 1 & 121 & 0x79\\
+        \hline
+        f & 1 & 1 & 1 & 0 & 0 & 0 & 1 & 113 & 0x71\\
+        \hline
+      \end{tabular}
+    \end{center}
+
+\subsection{Assignment 2}
+
+\subsection{Assignment 3}
+
+%\lstinputlisting[
+    %caption=Write All LEDs Code, % Caption above the listing
+    %label=lst:L4, % Label for referencing this listing
+    %language=C++, % Use C++ functions/syntax highlighting
+    %frame=single, % Frame around the code listing
+    %showstringspaces=false, % Don't put marks in string spaces
+    %numbers=left, % Line numbers on left
+    %numberstyle=\tiny, % Line numbers styling
+    %backgroundcolor=\color{black!5}, % Set background color
+    %keywordstyle=\color{magenta!80}, % Set keyword color
+    %commentstyle=\color{blue!80}, % Set comment color
+    %stringstyle=\color{green!80}, % Set string color
+    %breaklines=true,
+    %firstline=190,
+    %lastline=194
+  %]{Code/LedNumber.cpp}
+
+\subsection{Assignment 4}
+
+\section{Conclusion}
+
+Overall, this laboratory project was an effective way to finish off the course. By having us draw from concepts learned throughout the entirety of the course, we were able to effectively work with a hardware device integrated with C++. As such, through the creation of new code, as well as integration of code from previous labs, DE1SoCfpga board interaction was converted to a fully object-oriented C++ program, encompassing all course concepts.
+
+\end{document}
