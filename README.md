@@ -44,6 +44,7 @@
     * [**Header Files and Compiling Multiple Files**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section22.pdf)
     * [**Final Project**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section23.pdf)
     * [**Makefiles**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section24.pdf)
+    * [**Semester Review**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Notes/Section25.pdf)
 * [**Labs**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/)
     * [**Lab One**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%202/)
         * [**Lab Report**](https://github.com/MDBrodskiy/Embedded_Design/tree/master/Labs/Lab%201/Lab.pdf)
