@@ -11,7 +11,7 @@
 
 \author{Michael \textsc{Brodskiy}\\ \small \href{mailto:Brodskiy.M@Northeastern.edu}{Brodskiy.M@Northeastern.edu}}
 
-\date{April 6, 2023} % Date of the report
+\date{April 19, 2023} % Date of the report
 
 %----------------------------------------------------------------------------------------
 
@@ -68,6 +68,8 @@
 
 \section{Introduction}
 
+This lab project has the primary goal of controlling the 7-segment displays using object-oriented programming in C++. In the project, the 7-segment displays on the DE1-SoC board were utilized to display characters, decimal values and hexadecimal values being controlled by two parallel ports. The first port controls the displays (\texttt{HEX3}, \texttt{HEX2}, \texttt{HEX1}, \& \texttt{HEX0}), and the second parallel port controls the last two displays (\texttt{HEX5} \& \texttt{HEX4}). Data can be written into these two ports (registers) and read back by using word operations. 
+
 \section{Discussion \& Analysis} 
 
 \subsection{Assignment 1}
@@ -116,26 +118,199 @@ The purpose of assignment one was simply logic-based. It was necessary to consid
 
 \subsection{Assignment 2}
 
+In Part 2 of this project, the \texttt{DE1SoCfpga} class from the previous lab was converted into an independent class with its own header file and source file. The two files that were created are shown below in Listing \ref{lst:L1} and \ref{lst:L2}. The independent class \texttt{DE1SoCfpga} served as the base class for initializing memory and controlling register access.
+
+\lstinputlisting[
+    caption=\texttt{DE1SoCfpga} Class Declaration in Header File \texttt{DE1SoCfpga.h}, % Caption above the listing
+    label=lst:L1, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/sevenLED/DE1SoCfpga.h}
+
+\lstinputlisting[
+    caption=\texttt{DE1SoCfpga} Implementation file \texttt{DE1SoCfpga.cpp}, % Caption above the listing
+    label=lst:L2, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/sevenLED/DE1SoCfpga.cpp}
+
+  When looking at the implementation file, \texttt{DE1SoCfpga.cpp}, the functions for the previous lab were implemented from the previous lab. The constructor \texttt{DE1SoCfpga()} was included to initialize the memory-mapped I/O, the destructor \texttt{\char`~DE1SoCfpga()} was included to finalize the memory-mapped I/O, the function \texttt{RegisterWrite(offset, value)} was a included to write a value to into a register given the offset, and the function \texttt{RegisterRead(offset)} was included to return the value read from a register given its offset.
+
 \subsection{Assignment 3}
 
-%\lstinputlisting[
-    %caption=Write All LEDs Code, % Caption above the listing
-    %label=lst:L4, % Label for referencing this listing
-    %language=C++, % Use C++ functions/syntax highlighting
-    %frame=single, % Frame around the code listing
-    %showstringspaces=false, % Don't put marks in string spaces
-    %numbers=left, % Line numbers on left
-    %numberstyle=\tiny, % Line numbers styling
-    %backgroundcolor=\color{black!5}, % Set background color
-    %keywordstyle=\color{magenta!80}, % Set keyword color
-    %commentstyle=\color{blue!80}, % Set comment color
-    %stringstyle=\color{green!80}, % Set string color
-    %breaklines=true,
-    %firstline=190,
-    %lastline=194
-  %]{Code/LedNumber.cpp}
+In Part 3 of the lab project, a new class called \texttt{SevenSegment} was created. This class had a declaration file or header file called \texttt{SevenSegment.h} and an implementation file or source file called \texttt{SevenSegment.cpp} both of which were in the same sevenLED directory. The two files are shown below in Listing \ref{lst:L3} and \ref{lst:L4}.
+
+\lstinputlisting[
+    caption=\texttt{SevenSegment} class declaration in header file \texttt{SevenSegment.h}, % Caption above the listing
+    label=lst:L3, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/sevenLED/SevenSegment.h}
+
+\lstinputlisting[
+    caption=\texttt{SevenSegment} source file \texttt{SevenSegment.cpp}, % Caption above the listing
+    label=lst:L4, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/sevenLED/SevenSegment.cpp}
+
+
+  In these two files, there was important functionality included to achieve the goal of controlling the 7-segment displays on the DE1-SoC board. In the \texttt{SevenSegment.h} file two new private, unsigned int data members \texttt{reg0\_hexValue} and \texttt{reg1\_hexValue} were created with the ability to update every time a new value was written to the corresponding register as well as a global array with 16 elements with each element representing the display segments to be turned ON or OFF when writing to a 7-segment display. Here in the \texttt{SevenSegment.h} file is also where the class \texttt{SevenSegment} inherits the class \texttt{DE1SoCfpga} and uses the functions \texttt{RegisterWrite()} and \texttt{RegisterRead()} as needed. \\
+
+  Then in the \texttt{SevenSegment.cpp} file, the constructor \texttt{SevenSegment()} was included as well as the destructor \texttt{\char`~SevenSegment()} which called a new function \texttt{Hex\_ClearAll()}. \texttt{Hex\_ClearAll()} is a function included in the \texttt{SevenSegment.cpp} source file that clears all the 7-segment displays. This was done by writing the value zero to the two data registers for the HEX displays with the \texttt{RegisterWrite()} function. Along with the function \texttt{Hex\_ClearAll()}, the functions \texttt{Hex\_ClearSpecific(int index)}, \texttt{Hex\_WriteSpecific(int display\_id, int value)} and \texttt{Hex\_WriteNumber(int number)} were created and included in the \texttt{SevenSegment.cpp} file. Starting with the function \texttt{Hex\_ClearSpecific()} this function turns off a specific 7-segment display specified by an index (0 to 5) using a bit mask and bit shifting. Next with the function \texttt{Hex\_WriteSpecific()}, this public function enables the ability to write a hexadecimal digit specified by a decimal value (0-15) to a specified display indicated by a \texttt{display\_id} (0-5). This function was created using an if else statement and the concepts of bit masking and bit shifting. Lastly the function \texttt{Hex\_WriteNumber(int number)} writes a positive or negative number on the 7-segment displays as shown in the \texttt{SevenSegment} source file \texttt{SevenSegment.cpp} shown above. \\
+
+  All functions described above were verified using the \texttt{main.cpp} file shown below in Listing \ref{lst:L5} to ensure correct behavior.
+
+\lstinputlisting[
+    caption=\texttt{main.cpp} file for verifying behavior of functions in \texttt{SevenSegment.cpp}, % Caption above the listing
+    label=lst:L5, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/seven/main.cpp}
+
+  In order to complete the verification process, a Makefile had to be created to compile the programs \texttt{DE1SoCfpga.h}, \texttt{DE1SoCfpga.cpp}, \texttt{SevenSegment.h}, \texttt{SevenSegment.cpp}, and \texttt{main.cpp}. 
+
+\lstinputlisting[
+    caption=, % Caption above the listing
+    label=lst:L6, % Label for referencing this listing
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true,
+  ]{project/seven/makefile}
+
+Results of the verification test are shown in a video that can be accessed by the first QR code below.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.55\textwidth]{Figures/Video1.png}
+  \caption{Verification video of \texttt{SevenSegment.cpp} functions}
+  \label{fig:1}
+\end{figure}
 
 \subsection{Assignment 4}
+
+The objective of Part 4 for the project was to combine a program written in a previous lab with the program written in parts 2 and 3 of this project so that the value controlled by push buttons is displayed on the 7-segment displays in addition to being displayed on the LEDs. This meant using the class \texttt{DE1SoCfpga} as a base class with both classes \texttt{LEDControl} and \texttt{SevenSegment} inheriting this class. To start, the \texttt{LEDControl} class was converted into an independent class with its own header and source file shown in Listing \ref{lst:L7} and \ref{lst:L8} respectively.
+
+\lstinputlisting[
+    caption=\texttt{LEDControl} class declaration in header file \texttt{LEDControl.h}, % Caption above the listing
+    label=lst:L7, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{project/sevenLED/LEDControl.h}
+
+\lstinputlisting[
+    caption=\texttt{LEDControl} source file \texttt{LEDControl.cpp}, % Caption above the listing
+    label=lst:L8, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{project/sevenLED/LEDControl.cpp}
+
+
+  In the \texttt{LEDControl.cpp} source file, the constructor \texttt{LEDControl()} and the destructor \texttt{\char'~LEDControl} were created where the destructor also displayed a message ``Closing LEDs, Switches, \& Buttons\ldots''. As for the functions \texttt{Write1Led()}, \texttt{WriteAllLeds()}, \texttt{Read1Switch()} and \texttt{ReadAllSwitches()} were included from the previous lab where they were tested and verified for correct behavior.  
+
+  Then, in order to test the functions, a \texttt{main.cpp} file was created with the functionality of controlling the LEDs and Hex displays with the switches and the push buttons on the DE1-SoC board. The \texttt{main.cpp} file can be seen below.
+
+\lstinputlisting[
+    caption=\texttt{Main.cpp} for Part 4, % Caption above the listing
+    label=lst:L9, % Label for referencing this listing
+    language=C++, % Use C++ functions/syntax highlighting
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{project/sevenLED/Main.cpp}
+
+After this was completed, a Makefile was created to compile the programs, including a clean rule accessible through the command make clean in order to get rid of all generated binary files.
+
+\lstinputlisting[
+    caption=Makefile for Part 4, % Caption above the listing
+    label=lst:L10, % Label for referencing this listing
+    frame=single, % Frame around the code listing
+    showstringspaces=false, % Don't put marks in string spaces
+    numbers=left, % Line numbers on left
+    numberstyle=\tiny, % Line numbers styling
+    backgroundcolor=\color{black!5}, % Set background color
+    keywordstyle=\color{magenta!80}, % Set keyword color
+    commentstyle=\color{blue!80}, % Set comment color
+    stringstyle=\color{green!80}, % Set string color
+    breaklines=true
+  ]{project/sevenLED/makefile}
+
+With the Makefile, the program was compiled and tested to verify the LEDs displayed the inputs binary value while the 7-segment displays displayed the same value in decimal, reflecting changes to the value when the push buttons are pressed. Below is a video demonstrating the working design. 
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=.55\textwidth]{Figures/Video2.png}
+  \caption{Verification Video}
+  \label{fig:2}
+\end{figure}
 
 \section{Conclusion}
 
